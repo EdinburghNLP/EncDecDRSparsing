@@ -503,8 +503,8 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
                 if torch.is_tensor(v):
                     state[k] = v.cuda()
 
-
     #=============================== training_data
+
     sentence_variables = []
 
     input1_variables = []
