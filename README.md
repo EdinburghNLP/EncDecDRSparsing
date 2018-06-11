@@ -8,6 +8,7 @@ The data used in the experiments are stored in folder data, the pretrained word 
 
 ## train and test
 Currently, we do test for each epoch, because the evaluation is carried by external components
+
     cd EncDecDRSparsing
     mkdir output_dev # storing development outputs
     mkdir output_tst # storing test outputs
