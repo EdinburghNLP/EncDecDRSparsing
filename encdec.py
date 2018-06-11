@@ -23,6 +23,8 @@ if use_cuda:
 
 torch.manual_seed(12345678)
 
+
+
 dev_out_dir = "output_dev/"
 tst_out_dir = "output_tst/"
 model_dir = "output_model/"
