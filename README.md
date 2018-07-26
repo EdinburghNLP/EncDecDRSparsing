@@ -4,7 +4,7 @@ The codes to the paper "Discourse Representation Structure Parsing" ACL 2018.
 
 # Experiments
 ## data
-The data used in the experiments are stored in folder data, the pretrained word embeddings could be got in https://drive.google.com/open?id=0B1VhP65vISjoZ3ppTnR3YXRMd1E, and then put it into the folder data. 
+The data used in the experiments are stored in folder data, the pretrained word embeddings could be got in https://drive.google.com/open?id=1ICyISR-0PhuQYxIsqE5P7_r-OCsETIEU, and then put it into the folder data. 
 
 ## train and test
 Currently, we do test for each epoch, because the evaluation is carried by external components
