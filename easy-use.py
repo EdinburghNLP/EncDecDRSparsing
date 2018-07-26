@@ -20,12 +20,8 @@ from joint_mask import VariableMask
 use_cuda = torch.cuda.is_available()
 if use_cuda:
     torch.cuda.manual_seed_all(12345678)
-
 torch.manual_seed(12345678)
 
-dev_out_dir = "output_dev/"
-tst_out_dir = "output_tst/"
-model_dir = "output_model/"
 
 class EncoderRNN(nn.Module):
     def __init__(self, word_size, word_dim, pretrain_size, pretrain_dim, pretrain_embeddings, lemma_size, lemma_dim, input_dim, hidden_dim, n_layers=1, dropout_p=0.0):
@@ -168,7 +164,7 @@ class AttnDecoderRNN(nn.Module):
                 tokens.append(idx)
                 self.outer_mask_pool.update(-2, idx)
 
-                if idx == tags_info.tag_to_ix[tags_info.EOS]:
+                if idx == self.tags_info.tag_to_ix[self.tags_info.EOS]:
                     break
             return Variable(torch.LongTensor(tokens),volatile=True), torch.cat(hidden_rep,0), hidden
 
@@ -208,8 +204,8 @@ class AttnDecoderRNN(nn.Module):
             rel = 0
             hidden_reps = []
 
-            mask_variable_true = Variable(torch.FloatTensor(rel_mask_pool.get_step_mask(True)), requires_grad = False)
-            mask_variable_false = Variable(torch.FloatTensor(rel_mask_pool.get_step_mask(False)), requires_grad = False)
+            mask_variable_true = Variable(torch.FloatTensor(self.rel_mask_pool.get_step_mask(True)), requires_grad = False)
+            mask_variable_false = Variable(torch.FloatTensor(self.rel_mask_pool.get_step_mask(False)), requires_grad = False)
             if use_cuda:
                 mask_variable_true = mask_variable_true.cuda()
                 mask_variable_false = mask_variable_false.cuda()
@@ -238,10 +234,10 @@ class AttnDecoderRNN(nn.Module):
                 _, input = torch.max(output,1)
                 idx = input.view(-1).data.tolist()[0]
 
-                if idx >= tags_info.tag_size:
-                    ttype = idx - tags_info.tag_size
+                if idx >= self.tags_info.tag_size:
+                    ttype = idx - self.tags_info.tag_size
                     idx = sentence_variable[2][ttype].view(-1).data.tolist()[0]
-                    idx += tags_info.tag_size
+                    idx += self.tags_info.tag_size
                     tokens.append(idx)
                     input = Variable(torch.LongTensor([idx]), volatile=True)
                     if use_cuda:
@@ -249,7 +245,7 @@ class AttnDecoderRNN(nn.Module):
                 else:
                     tokens.append(idx)
 
-                if idx == tags_info.tag_to_ix[tags_info.EOS]:
+                if idx == self.tags_info.tag_to_ix[self.tags_info.EOS]:
                     break
                 elif rel > 61 or self.total_rel > 121:
                     embedded = self.tag_embeds(input).view(1, 1, -1)
@@ -308,8 +304,8 @@ class AttnDecoderRNN(nn.Module):
                 embedded = self.tag_embeds(input).view(1, 1, -1)
 
                 idx = input.view(-1).data.tolist()[0]
-                assert idx < tags_info.tag_size
-                if idx == tags_info.tag_to_ix[tags_info.EOS]:
+                assert idx < self.tags_info.tag_size
+                if idx == self.tags_info.tag_to_ix[self.tags_info.EOS]:
                     break
                     
                 tokens.append(idx)
@@ -942,108 +938,155 @@ def test(dev_instances, tst_instances, encoder, decoder):
 #####################################################################################
 # main
 
-from utils import readfile
-from utils import data2instance
 from utils import readpretrain
+from utils import get_from_ix
 from tag import Tag
-#from mask import Mask
 
-trn_file = "data/train.input"
-dev_file = "data/dev.input"
-tst_file = "data/test.input"
-pretrain_file = "data/sskip.100.vectors"
-tag_info_file = "data/tag.info"
-#trn_file = "train.input.part"
-#dev_file = "dev.input.part"
-#tst_file = "test.input.part"
-#pretrain_file = "sskip.100.vectors.part"
-UNK = "<UNK>"
+import nltk
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import wordnet
 
-trn_data = readfile(trn_file)
-word_to_ix = {UNK:0}
-lemma_to_ix = {UNK:0}
-ix_to_lemma = [UNK]
-ix_to_word = [UNK]
-for sentence, _, lemmas, tags in trn_data:
-    for word in sentence:
-        if word not in word_to_ix:
-            word_to_ix[word] = len(word_to_ix)
-	    ix_to_word.append(word)
-    for lemma in lemmas:
-        if lemma not in lemma_to_ix:
-            lemma_to_ix[lemma] = len(lemma_to_ix)
-            ix_to_lemma.append(lemma)
+class Demo:
+
+    def load_model(self):
+
+        pretrain_file = "data/sskip.100.vectors"
+        tag_info_file = "data/tag.info"
+        word_list_file = "data/word.list"
+        lemma_list_file = "data/lemma.list"
+        model_file = "data/model"
+        UNK = "<UNK>"
+
+        self.word_to_ix = {}
+        self.lemma_to_ix = {}
+        self.ix_to_lemma = []
+        ix_to_word = []
+
+        for line in open(word_list_file):
+	    line = line.strip()
+	    self.word_to_ix[line] = len(ix_to_word)
+	    ix_to_word.append(line)
+
+        for line in open(lemma_list_file):
+	    line = line.strip()
+	    self.lemma_to_ix[line] = len(self.ix_to_lemma)
+	    self.ix_to_lemma.append(line)
+
+
 #############################################
 ## tags
-tags_info = Tag(tag_info_file, ix_to_lemma)
-SOS = tags_info.SOS
-EOS = tags_info.EOS
-outer_mask_pool = OuterMask(tags_info)
-rel_mask_pool = RelationMask(tags_info)
-var_mask_pool = VariableMask(tags_info)
+        self.tags_info = Tag(tag_info_file, self.ix_to_lemma)
+        SOS = self.tags_info.SOS
+        EOS = self.tags_info.EOS
+        self.outer_mask_pool = OuterMask(self.tags_info)
+        self.rel_mask_pool = RelationMask(self.tags_info)
+        self.var_mask_pool = VariableMask(self.tags_info)
 ##############################################
 ##
 #mask_info = Mask(tags)
 #############################################
-pretrain_to_ix = {UNK:0}
-pretrain_embeddings = [ [0. for i in range(100)] ] # for UNK 
-pretrain_data = readpretrain(pretrain_file)
-for one in pretrain_data:
-    pretrain_to_ix[one[0]] = len(pretrain_to_ix)
-    pretrain_embeddings.append([float(a) for a in one[1:]])
-print "pretrain dict size:", len(pretrain_to_ix)
+        self.pretrain_to_ix = {UNK:0}
+        self.pretrain_embeddings = [ [0. for i in range(100)] ] # for UNK 
+        pretrain_data = readpretrain(pretrain_file)
+        for one in pretrain_data:
+            self.pretrain_to_ix[one[0]] = len(self.pretrain_to_ix)
+            self.pretrain_embeddings.append([float(a) for a in one[1:]])
+    
+	print "pretrain dict size:", len(self.pretrain_to_ix)
 
-dev_data = readfile(dev_file)
-tst_data = readfile(tst_file)
 
-print "word dict size: ", len(word_to_ix)
-print "lemma dict size: ", len(lemma_to_ix)
-print "global tag (w/o variables) dict size: ", tags_info.k_rel_start
-print "global tag (w variables) dict size: ", tags_info.tag_size
+    	print "word dict size: ", len(self.word_to_ix)
+    	print "lemma dict size: ", len(self.lemma_to_ix)
+    	print "global tag (w/o variables) dict size: ", self.tags_info.k_rel_start
+    	print "global tag (w variables) dict size: ", self.tags_info.tag_size
 
-WORD_EMBEDDING_DIM = 64
-PRETRAIN_EMBEDDING_DIM = 100
-LEMMA_EMBEDDING_DIM = 32
-TAG_DIM = 128
-INPUT_DIM = 100
-ENCODER_HIDDEN_DIM = 256
-DECODER_INPUT_DIM = 128
-ATTENTION_HIDDEN_DIM = 256
+    	WORD_EMBEDDING_DIM = 64
+    	PRETRAIN_EMBEDDING_DIM = 100
+    	LEMMA_EMBEDDING_DIM = 32
+    	TAG_DIM = 128
+    	INPUT_DIM = 100
+    	ENCODER_HIDDEN_DIM = 256
+    	DECODER_INPUT_DIM = 128
+    	ATTENTION_HIDDEN_DIM = 256
 
-out_word_ix = open("word.list", "w")
-out_lemma_ix = open("lemma.list", "w")
+    	self.encoder = EncoderRNN(len(self.word_to_ix), WORD_EMBEDDING_DIM, len(self.pretrain_to_ix), PRETRAIN_EMBEDDING_DIM, torch.FloatTensor(self.pretrain_embeddings), len(self.lemma_to_ix), LEMMA_EMBEDDING_DIM, INPUT_DIM, ENCODER_HIDDEN_DIM, n_layers=2, dropout_p=0.1)
+    	self.decoder = AttnDecoderRNN(self.outer_mask_pool, self.rel_mask_pool, self.var_mask_pool, self.tags_info, TAG_DIM, DECODER_INPUT_DIM, ENCODER_HIDDEN_DIM, ATTENTION_HIDDEN_DIM, n_layers=1, dropout_p=0.1)
+    
+    	check_point = torch.load(model_file)
+    	self.encoder.load_state_dict(check_point["encoder"])
+    	self.decoder.load_state_dict(check_point["decoder"])
+    	if use_cuda:
+	    self.encoder = self.encoder.cuda()
+            self.decoder = self.decoder.cuda()
 
-for item in ix_to_word:
-    out_word_ix.write(item+"\n")
-out_word_ix.flush()
-out_word_ix.close()
-for item in ix_to_lemma:
-    out_lemma_ix.write(item+"\n")
-out_lemma_ix.flush()
-out_lemma_ix.close()
-encoder = EncoderRNN(len(word_to_ix), WORD_EMBEDDING_DIM, len(pretrain_to_ix), PRETRAIN_EMBEDDING_DIM, torch.FloatTensor(pretrain_embeddings), len(lemma_to_ix), LEMMA_EMBEDDING_DIM, INPUT_DIM, ENCODER_HIDDEN_DIM, n_layers=2, dropout_p=0.1)
-attn_decoder = AttnDecoderRNN(outer_mask_pool, rel_mask_pool, var_mask_pool, tags_info, TAG_DIM, DECODER_INPUT_DIM, ENCODER_HIDDEN_DIM, ATTENTION_HIDDEN_DIM, n_layers=1, dropout_p=0.1)
+    	print "GPU", use_cuda
 
-###########################################################
-# prepare training instance
-trn_instances = data2instance(trn_data, [(word_to_ix,0), (pretrain_to_ix,0), (lemma_to_ix,0), tags_info])
-print "trn size: " + str(len(trn_instances))
-###########################################################
-# prepare development instance
-dev_instances = data2instance(dev_data, [(word_to_ix,0), (pretrain_to_ix,0), (lemma_to_ix,0), tags_info])
-print "dev size: " + str(len(dev_instances))
-###########################################################
-# prepare test instance
-tst_instances = data2instance(tst_data, [(word_to_ix,0), (pretrain_to_ix,0), (lemma_to_ix,0), tags_info])
-print "tst size: " + str(len(tst_instances))
+    	return
 
-print "GPU", use_cuda
-if use_cuda:
-    encoder = encoder.cuda()
-    attn_decoder = attn_decoder.cuda()
+    def get_wordnet_pos(self,treebank_tag):
+        """
+        return WORDNET POS compliance to WORDENT lemmatization (a,n,r,v) 
+        """
+        if treebank_tag.startswith('J'):
+            return wordnet.ADJ
+        elif treebank_tag.startswith('V'):
+            return wordnet.VERB
+        elif treebank_tag.startswith('N'):
+            return wordnet.NOUN
+        elif treebank_tag.startswith('R'):
+            return wordnet.ADV
+        else:
+            # As default pos in lemmatization is Noun
+            return wordnet.NOUN
 
-if len(sys.argv) == 5 and sys.argv[-1] == "test":
-    test(dev_instances, tst_instances, encoder, attn_decoder)
-else:
-    trainIters(trn_instances, dev_instances, tst_instances, encoder, attn_decoder, print_every=1000, evaluate_every=50000, learning_rate=0.0005)
+    def get_lemmas(self, tokens):
+	lemmatizer = WordNetLemmatizer()
+	pos_tokens = [nltk.pos_tag(tokens)]
+	lemmas = []
+	for pos in pos_tokens[0]:
+		word, pos_tag = pos
+		lemmas.append(lemmatizer.lemmatize(word.lower(),self.get_wordnet_pos(pos_tag)))
+		lemmas[-1] = lemmas[-1].encode("utf8")
+    	return lemmas
+    def test(self, sent):
+	tokenizer = nltk.tokenize.TreebankWordTokenizer()
+	tokens = tokenizer.tokenize(sent)
+	lemmas = self.get_lemmas(tokens)
+	pretrains = [ tok.lower() for tok in tokens]
+	print tokens
+	print pretrains
+	print lemmas
 
+	instance = []
+	instance.append(Variable(torch.LongTensor([get_from_ix(tok, self.word_to_ix, 0) for tok in tokens]), volatile=True))
+	instance.append(Variable(torch.LongTensor([get_from_ix(tok, self.pretrain_to_ix, 0) for tok in pretrains]), volatile=True))
+	instance.append(Variable(torch.LongTensor([get_from_ix(tok, self.lemma_to_ix, 0) for tok in lemmas]), volatile=True))
+
+	if use_cuda:
+	    instance[0] = instance[0].cuda()
+	    instance[1] = instance[1].cuda()
+	    instance[2] = instance[2].cuda()
+
+	if use_cuda:
+	    torch.cuda.empty_cache()
+	structs, tokens = decode(instance, self.encoder, self.decoder)	
+
+        p = 0
+        output = []
+        for i in range(len(structs)):
+            if structs[i] < self.decoder.tags_info.tag_size:
+                output.append(self.decoder.tags_info.ix_to_tag[structs[i]])
+            else:
+                output.append(self.decoder.tags_info.ix_to_lemma[structs[i] - self.decoder.tags_info.tag_size])
+            if (structs[i] >= 13 and structs[i] < self.decoder.tags_info.k_rel_start) or structs[i] >= self.decoder.tags_info.tag_size:
+                for idx in tokens[p]:
+                    output.append(self.decoder.tags_info.ix_to_tag[idx])
+                p += 1
+        assert p == len(tokens)
+        print " ".join(output)+"\n"
+	
+	
+if __name__ == "__main__":
+	demo = Demo()
+	demo.load_model()
+	demo.test("They marched from the Houses of Parliament to a rally in Hyde Park.")
