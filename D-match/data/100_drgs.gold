@@ -1,0 +1,3300 @@
+%%% DRG: 1
+%%% He broke his leg in the baseball game .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b4 REF x3 % the 20-23
+b4 REF x4
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b1 male.n.02 c2 % his 9-12
+c2 ARG1 x1
+b2 leg.n.01 c3 % leg 13-16
+c3 ARG1 x2
+b2 of c4
+c4 ARG1 x2
+c4 ARG2 x1
+b3 fracture.v.06 c5 % broke 3-8
+c5 ARG1 e1
+b3 Theme c6
+c6 ARG1 e1
+c6 ARG2 x1
+b3 Location c7
+c7 ARG1 e1
+c7 ARG2 x2
+b3 time.n.01 c8
+c8 ARG1 t1
+b3 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b3 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+b4 baseball.n.01 c11 % baseball 24-32
+c11 ARG1 x4
+b4 of c12
+c12 ARG1 x3
+c12 ARG2 x4
+b4 game.n.02 c13 % game 33-37
+c13 ARG1 x3
+b3 Instrument c14 % in 17-19
+c14 ARG1 e1
+c14 ARG2 x3
+
+%%% DRG: 2
+%%% Someone stole her money .
+b1 REF x1
+b2 REF x2
+b3 REF x3
+b1 REF e1
+b1 REF t1
+b1 person.n.12 c1 % Someone 0-7
+c1 ARG1 x1
+b2 female.n.02 c2 % her 14-17
+c2 ARG1 x2
+b3 of c3
+c3 ARG1 x3
+c3 ARG2 x2
+b3 money.n.01 c4 % money 18-23
+c4 ARG1 x3
+b1 steal.v.01 c5 % stole 8-13
+c5 ARG1 e1
+b1 Theme c6
+c6 ARG1 e1
+c6 ARG2 x1
+b1 Location c7
+c7 ARG1 e1
+c7 ARG2 x3
+b1 time.n.01 c8
+c8 ARG1 t1
+b1 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b1 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+
+%%% DRG: 3
+%%% She likes ø potato~salad .
+b1 REF x1
+b2 REF x2
+b2 REF e1
+b2 REF t1
+b1 female.n.02 c1 % She 0-3
+c1 ARG1 x1
+b2 potato_salad.n.01 c2 % potato~salad 10-22
+c2 ARG1 x2
+b2 like.v.02 c3 % likes 4-9
+c3 ARG1 e1
+b2 Experiencer c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 Stimulus c5
+c5 ARG1 e1
+c5 ARG2 x2
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b2 EQU c8
+c8 ARG t1
+c8 ARG "now"
+
+%%% DRG: 4
+%%% ø Tom 's phone~number has changed .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF e2
+b3 REF t1 % has 19-22
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 phone_number.n.01 c3 % phone~number 6-18
+c3 ARG1 x2
+b2 of c4
+c4 ARG1 x2
+c4 ARG2 x1
+b3 change.v.06 c5 % changed 23-30
+c5 ARG1 e1
+b3 Agent c6
+c6 ARG1 e1
+c6 ARG2 x2
+b3 PERF c7
+c7 ARG1 e1
+c7 ARG2 e2
+b3 time.n.01 c8
+c8 ARG1 t1
+b3 Time c9
+c9 ARG1 e2
+c9 ARG2 t1
+b3 EQU c10
+c10 ARG t1
+c10 ARG "now"
+
+%%% DRG: 5
+%%% That boy showed no fear .
+b1 REF x1 % That 0-4
+b1 male_child.n.01 c1 % boy 5-8
+c1 ARG1 x1
+b2 NOT b3 % no 16-18
+b3 REF x2
+b3 REF e1
+b3 REF t1
+b3 fear.n.01 c2 % fear 19-23
+c2 ARG1 x2
+b3 express.v.01 c3 % showed 9-15
+c3 ARG1 e1
+b3 Agent c4
+c4 ARG1 e1
+c4 ARG2 x1
+b3 Theme c5
+c5 ARG1 e1
+c5 ARG2 x2
+b3 time.n.01 c6
+c6 ARG1 t1
+b3 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b3 temp_before c8
+c8 ARG1 t1
+c8 ARG2 "now"
+
+%%% DRG: 6
+%%% You cut down a cherry~tree .
+b1 REF x1 % a 13-14
+b1 REF e1
+b1 REF t1
+b1 cherry.n.02 c1 % cherry~tree 15-26
+c1 ARG1 x1
+b1 fell.v.01 c2 % cut 4-7
+c2 ARG1 e1
+b1 Agent c3
+c3 ARG1 e1
+c3 ARG2 "hearer"
+b1 Theme c4
+c4 ARG1 e1
+c4 ARG2 x1
+b1 time.n.01 c5
+c5 ARG1 t1
+b1 Time c6
+c6 ARG1 e1
+c6 ARG2 t1
+b1 temp_before c7
+c7 ARG1 t1
+c7 ARG2 "now"
+
+%%% DRG: 7
+%%% The police estimates the loss at ø around two~million DM .
+b1 REF x1 % The 0-3
+b2 REF x2 % the 21-24
+b3 REF e1
+b3 REF x3
+b3 REF x4
+b3 REF x5
+b3 REF t1
+b1 police.n.01 c1 % police 4-10
+c1 ARG1 x1
+b2 loss.n.01 c2 % loss 25-29
+c2 ARG1 x2
+b3 estimate.v.01 c3 % estimates 11-20
+c3 ARG1 e1
+b3 Agent c4
+c4 ARG1 e1
+c4 ARG2 x1
+b3 Theme c5
+c5 ARG1 e1
+c5 ARG2 x2
+b3 quantity.n.01 c6
+c6 ARG1 x4
+b3 quantity.n.01 c7
+c7 ARG1 x5
+b3 Quantity c8
+c8 ARG1 x3
+c8 ARG2 x4
+b3 Quantity c9 % two~million 40-51
+c9 ARG1 x5
+c9 ARG2 "2000000"
+b3 APX c10 % around 33-39
+c10 ARG1 x4
+c10 ARG2 x5
+b3 measure.n.02 c11
+c11 ARG1 x3
+b3 unit c12 % DM 52-54
+c12 ARG1 x3
+c12 ARG2 "deutsche~mark"
+b3 Topic c13 % at 30-32
+c13 ARG1 e1
+c13 ARG2 x3
+b3 time.n.01 c14
+c14 ARG1 t1
+b3 Time c15
+c15 ARG1 e1
+c15 ARG2 t1
+b3 EQU c16
+c16 ARG t1
+c16 ARG "now"
+
+%%% DRG: 8
+%%% She is the Prime~Minister of ø Finland .
+b1 REF x1
+b2 REF x2 % the 7-10
+b2 REF x3
+b2 REF x4
+b1 female.n.02 c1 % She 0-3
+c1 ARG1 x1
+b2 prime_minister.n.01 c2 % Prime~Minister 11-25
+c2 ARG1 x3
+b2 Role c3
+c3 ARG1 x2
+c3 ARG2 x3
+b2 person.n.01 c4
+c4 ARG1 x2
+b2 location.n.01 c5
+c5 ARG1 x4
+b2 Named c6 % Finland 29-36
+c6 ARG1 x4
+c6 ARG2 "finland"
+b2 Content c7 % of 26-28
+c7 ARG1 x3
+c7 ARG2 x4
+b2 of c8 % is 4-6
+c8 ARG1 x3
+c8 ARG2 x1
+
+%%% DRG: 9
+%%% ø Tom stole from me .
+b1 REF x1
+b2 REF e1
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 steal.v.01 c3 % stole 4-9
+c3 ARG1 e1
+b2 Theme c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 Topic c5 % from 10-14
+c5 ARG1 e1
+c5 ARG2 "speaker"
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b2 temp_before c8
+c8 ARG1 t1
+c8 ARG2 "now"
+
+%%% DRG: 10
+%%% I explained the process to him .
+b1 REF x1 % the 12-15
+b2 REF e1
+b3 REF x2
+b2 REF t1
+b1 procedure.n.01 c1 % process 16-23
+c1 ARG1 x1
+b2 explain.v.01 c2 % explained 2-11
+c2 ARG1 e1
+b2 Agent c3
+c3 ARG1 e1
+c3 ARG2 "speaker"
+b2 Topic c4
+c4 ARG1 e1
+c4 ARG2 x1
+b3 male.n.02 c5 % him 27-30
+c5 ARG1 x2
+b2 Topic c6 % to 24-26
+c6 ARG1 e1
+c6 ARG2 x2
+b2 time.n.01 c7
+c7 ARG1 t1
+b2 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b2 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 11
+%%% ø Tom ripped up the check .
+b1 REF x1
+b2 REF x2 % the 14-17
+b3 REF e1
+b3 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 check.n.01 c3 % check 18-23
+c3 ARG1 x2
+b3 shred.v.01 c4 % ripped 4-10
+c4 ARG1 e1
+b3 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b3 Theme c6
+c6 ARG1 e1
+c6 ARG2 x2
+b3 time.n.01 c7
+c7 ARG1 t1
+b3 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b3 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 12
+%%% The jet landed at ø Tokyo .
+b1 REF x1 % The 0-3
+b2 REF e1
+b2 REF t1
+b2 REF x2
+b1 jet.n.01 c1 % jet 4-7
+c1 ARG1 x1
+b2 land.v.02 c2 % landed 8-14
+c2 ARG1 e1
+b2 Theme c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 time.n.01 c4
+c4 ARG1 t1
+b2 Time c5
+c5 ARG1 e1
+c5 ARG2 t1
+b2 temp_before c6
+c6 ARG1 t1
+c6 ARG2 "now"
+b2 location.n.01 c7
+c7 ARG1 x2
+b2 Named c8 % Tokyo 18-23
+c8 ARG1 x2
+c8 ARG2 "tokyo"
+b2 Instrument c9 % at 15-17
+c9 ARG1 e1
+c9 ARG2 x2
+
+%%% DRG: 13
+%%% She shook ø hands with him .
+b1 REF x1
+b2 REF x2
+b2 REF e1
+b2 REF t1
+b3 REF x3
+b1 female.n.02 c1 % She 0-3
+c1 ARG1 x1
+b2 hand.n.01 c2 % hands 10-15
+c2 ARG1 x2
+b2 shake.v.09 c3 % shook 4-9
+c3 ARG1 e1
+b2 Stimulus c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 Experiencer c5
+c5 ARG1 e1
+c5 ARG2 x2
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b2 temp_before c8
+c8 ARG1 t1
+c8 ARG2 "now"
+b3 male.n.02 c9 % him 21-24
+c9 ARG1 x3
+b2 Instrument c10 % with 16-20
+c10 ARG1 e1
+c10 ARG2 x3
+
+%%% DRG: 14
+%%% ø http://www.anl.siemens.de/about/index.html
+b1 REF x1
+b1 uniform~resource~locator.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % http://www.anl.siemens.de/about/index.html 0-42
+c2 ARG1 x1
+c2 ARG2 "http://www.anl.siemens.de/about/index.html"
+
+%%% DRG: 15
+%%% ø Tom said he would n't shoot an un armed man .
+b2 REF e1
+b2 REF p1
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 state.v.01 c3 % said 4-8
+c3 ARG1 e1
+b2 Cause c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 Topic c5
+c5 ARG1 e1
+c5 ARG2 p1
+b2 PROP c6
+c6 ARG1 p1
+c6 ARG2 b3
+b2 time.n.01 c17
+c17 ARG1 t1
+b2 Time c18
+c18 ARG1 e1
+c18 ARG2 t1
+b2 temp_before c19
+c19 ARG1 t1
+c19 ARG2 "now"
+b1 REF x1
+b1 male.n.02 c7 % he 9-11
+c7 ARG1 x1
+b3 NOT b4 % n't 17-20
+b4 REF x2 % an 27-29
+b4 REF e2
+b4 REF t2 % would 12-17
+b4 NOT b5 % un 30-32
+b4 man.n.01 c10 % man 38-41
+c10 ARG1 x2
+b4 shoot.v.01 c11 % shoot 21-26
+c11 ARG1 e2
+b4 Agent c12
+c12 ARG1 e2
+c12 ARG2 x1
+b4 Theme c13
+c13 ARG1 e2
+c13 ARG2 x2
+b4 time.n.01 c14
+c14 ARG1 t2
+b4 Time c15
+c15 ARG1 e2
+c15 ARG2 t2
+b4 temp_before c16
+c16 ARG1 "now"
+c16 ARG2 t2
+b5 REF s1
+b5 Holder c8
+c8 ARG1 s1
+c8 ARG2 x2
+b5 armed.a.01 c9 % armed 32-37
+c9 ARG1 s1
+
+%%% DRG: 16
+%%% The post~office is half a mile away .
+b1 REF x1 % The 0-3
+b2 REF x2 % a 24-25
+b2 REF x3
+b2 REF t1 % is 16-18
+b1 post_office.n.01 c1 % post~office 4-15
+c1 ARG1 x1
+b2 Quantity c2 % half 19-23
+c2 ARG1 x2
+c2 ARG2 "0.5"
+b2 measure.n.02 c3
+c3 ARG1 x2
+b2 unit c4 % mile 26-30
+c4 ARG1 x2
+c4 ARG2 "mile"
+b2 off.r.02 c5 % away 31-35
+c5 ARG1 x3
+b2 Holder c6
+c6 ARG1 x3
+c6 ARG2 x1
+b2 Measure c7
+c7 ARG1 x3
+c7 ARG2 x2
+b2 time.n.01 c8
+c8 ARG1 t1
+b2 Time c9
+c9 ARG1 x3
+c9 ARG2 t1
+b2 EQU c10
+c10 ARG t1
+c10 ARG "now"
+
+%%% DRG: 17
+%%% You should n't drink ø stagnant water .
+b1 NEC b2 % should 4-10
+b2 NOT b3 % n't 10-13
+b3 REF x1
+b3 REF x2
+b3 REF e1
+b3 Holder c1
+c1 ARG1 x2
+c1 ARG2 x1
+b3 dead.s.10 c2 % stagnant 20-28
+c2 ARG1 x2
+b3 water.n.01 c3 % water 29-34
+c3 ARG1 x1
+b3 drink.v.01 c4 % drink 14-19
+c4 ARG1 e1
+b3 Agent c5
+c5 ARG1 e1
+c5 ARG2 "hearer"
+b3 Patient c6
+c6 ARG1 e1
+c6 ARG2 x1
+
+%%% DRG: 18
+%%% I was buying some books from the bookstore .
+b1 REF x1 % some 13-17
+b1 REF e1
+b2 REF x2 % the 29-32
+b1 REF e2
+b1 REF t1 % was 2-5
+b1 book.n.02 c1 % books 18-23
+c1 ARG1 x1
+b1 buy.v.01 c2 % buying 6-12
+c2 ARG1 e1
+b1 Agent c3
+c3 ARG1 e1
+c3 ARG2 "speaker"
+b1 Theme c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 bookshop.n.01 c5 % bookstore 33-42
+c5 ARG1 x2
+b1 Topic c6 % from 24-28
+c6 ARG1 e1
+c6 ARG2 x2
+b1 state.n.1 c7
+c7 ARG1 e2
+b1 PROG c8
+c8 ARG1 e1
+c8 ARG2 e2
+b1 time.n.01 c9
+c9 ARG1 t1
+b1 Time c10
+c10 ARG1 e2
+c10 ARG2 t1
+b1 temp_before c11
+c11 ARG1 t1
+c11 ARG2 "now"
+
+%%% DRG: 19
+%%% She bought a dozen eggs .
+b1 REF x1
+b2 REF x2 % a 11-12
+b2 REF e1
+b2 REF t1
+b1 female.n.02 c1 % She 0-3
+c1 ARG1 x1
+b2 Quantity c2 % dozen 13-18
+c2 ARG1 x2
+c2 ARG2 "12"
+b2 egg.n.02 c3 % eggs 19-23
+c3 ARG1 x2
+b2 buy.v.01 c4 % bought 4-10
+c4 ARG1 e1
+b2 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 Theme c6
+c6 ARG1 e1
+c6 ARG2 x2
+b2 time.n.01 c7
+c7 ARG1 t1
+b2 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b2 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 20
+%%% He is studying ø agriculture .
+b1 REF x1
+b2 REF x2
+b2 REF e1
+b2 REF e2
+b2 REF t1 % is 3-5
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 farming.n.01 c2 % agriculture 15-26
+c2 ARG1 x2
+b2 study.v.02 c3 % studying 6-14
+c3 ARG1 e1
+b2 Agent c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 Theme c5
+c5 ARG1 e1
+c5 ARG2 x2
+b2 state.n.1 c6
+c6 ARG1 e2
+b2 PROG c7
+c7 ARG1 e1
+c7 ARG2 e2
+b2 time.n.01 c8
+c8 ARG1 t1
+b2 Time c9
+c9 ARG1 e2
+c9 ARG2 t1
+b2 EQU c10
+c10 ARG t1
+c10 ARG "now"
+
+%%% DRG: 21
+%%% He nodded to me .
+b1 REF x1
+b2 REF e1
+b2 REF t1
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 nod.v.02 c2 % nodded 3-9
+c2 ARG1 e1
+b2 Agent c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 Theme c4 % to 10-12
+c4 ARG1 e1
+c4 ARG2 "speaker"
+b2 time.n.01 c5
+c5 ARG1 t1
+b2 Time c6
+c6 ARG1 e1
+c6 ARG2 t1
+b2 temp_before c7
+c7 ARG1 t1
+c7 ARG2 "now"
+
+%%% DRG: 22
+%%% I want a pony .
+b1 REF x1 % a 7-8
+b1 REF x2
+b1 REF t1
+b1 pony.n.01 c1 % pony 9-13
+c1 ARG1 x1
+b1 wish.n.01 c2 % want 2-6
+c2 ARG1 x2
+b1 Agent c3
+c3 ARG1 x2
+c3 ARG2 "speaker"
+b1 Theme c4
+c4 ARG1 x2
+c4 ARG2 x1
+b1 time.n.01 c5
+c5 ARG1 t1
+b1 Time c6
+c6 ARG1 x2
+c6 ARG2 t1
+b1 EQU c7
+c7 ARG t1
+c7 ARG "now"
+
+%%% DRG: 23
+%%% I regret nothing .
+b1 NOT b2
+b2 REF x1
+b2 REF e1
+b2 REF t1
+b2 thing.n.12 c1 % nothing 9-16
+c1 ARG1 x1
+b2 repent.v.02 c2 % regret 2-8
+c2 ARG1 e1
+b2 Experiencer c3
+c3 ARG1 e1
+c3 ARG2 "speaker"
+b2 Stimulus c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 time.n.01 c5
+c5 ARG1 t1
+b2 Time c6
+c6 ARG1 e1
+c6 ARG2 t1
+b2 EQU c7
+c7 ARG t1
+c7 ARG "now"
+
+%%% DRG: 24
+%%% ø Tom turned down the offer .
+b1 REF x1
+b2 REF x2 % the 16-19
+b3 REF e1
+b3 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 offer.n.01 c3 % offer 20-25
+c3 ARG1 x2
+b3 refuse.v.02 c4 % turned 4-10
+c4 ARG1 e1
+b3 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b3 Theme c6
+c6 ARG1 e1
+c6 ARG2 x2
+b3 time.n.01 c7
+c7 ARG1 t1
+b3 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b3 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 25
+%%% We are un armed !
+b1 NOT b2 % un 7-9
+b2 REF s1
+b2 REF t1 % are 3-6
+b2 armed.a.01 c1 % armed 9-14
+c1 ARG1 s1
+b2 Holder c2
+c2 ARG1 s1
+c2 ARG2 "speaker"
+b2 time.n.01 c3
+c3 ARG1 t1
+b2 Time c4
+c4 ARG1 s1
+c4 ARG2 t1
+b2 EQU c5
+c5 ARG t1
+c5 ARG "now"
+
+%%% DRG: 26
+%%% We caught ø two foxes .
+b1 REF x1
+b1 REF e1
+b1 REF t1
+b1 Quantity c1 % two 10-13
+c1 ARG1 x1
+c1 ARG2 "2"
+b1 fox.n.01 c2 % foxes 14-19
+c2 ARG1 x1
+b1 capture.v.06 c3 % caught 3-9
+c3 ARG1 e1
+b1 Agent c4
+c4 ARG1 e1
+c4 ARG2 "speaker"
+b1 Theme c5
+c5 ARG1 e1
+c5 ARG2 x1
+b1 time.n.01 c6
+c6 ARG1 t1
+b1 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b1 temp_before c8
+c8 ARG1 t1
+c8 ARG2 "now"
+
+%%% DRG: 27
+%%% She bought ø two~dozen eggs .
+b1 REF x1
+b2 REF x2
+b2 REF e1
+b2 REF t1
+b1 female.n.02 c1 % She 0-3
+c1 ARG1 x1
+b2 Quantity c2 % two~dozen 11-20
+c2 ARG1 x2
+c2 ARG2 "24"
+b2 egg.n.02 c3 % eggs 21-25
+c3 ARG1 x2
+b2 buy.v.01 c4 % bought 4-10
+c4 ARG1 e1
+b2 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 Theme c6
+c6 ARG1 e1
+c6 ARG2 x2
+b2 time.n.01 c7
+c7 ARG1 t1
+b2 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b2 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 28
+%%% The tigers escaped from the zoo .
+b1 REF x1 % The 0-3
+b2 REF e1
+b3 REF x2 % the 24-27
+b2 REF t1
+b1 tiger.n.02 c1 % tigers 4-10
+c1 ARG1 x1
+b2 escape.v.01 c2 % escaped 11-18
+c2 ARG1 e1
+b2 Theme c3
+c3 ARG1 e1
+c3 ARG2 x1
+b3 menagerie.n.02 c4 % zoo 28-31
+c4 ARG1 x2
+b2 Source c5 % from 19-23
+c5 ARG1 e1
+c5 ARG2 x2
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b2 temp_before c8
+c8 ARG1 t1
+c8 ARG2 "now"
+
+%%% DRG: 29
+%%% I politely turned down his offer and hung up .
+b3 continuation b4 % and 33-36
+b3 parallel b4
+b4 REF e2
+b4 REF t2
+b4 hang_up.v.01 c12 % hung 37-41
+c12 ARG1 e2
+b4 Patient c13
+c13 ARG1 e2
+c13 ARG2 "speaker"
+b4 time.n.01 c14
+c14 ARG1 t2
+b4 Time c15
+c15 ARG1 e2
+c15 ARG2 t2
+b4 temp_before c16
+c16 ARG1 t2
+c16 ARG2 "now"
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b3 REF x3
+b1 male.n.02 c1 % his 23-26
+c1 ARG1 x1
+b2 offer.n.01 c2 % offer 27-32
+c2 ARG1 x2
+b2 of c3
+c3 ARG1 x2
+c3 ARG2 x1
+b3 refuse.v.02 c4 % turned 11-17
+c4 ARG1 e1
+b3 Agent c5
+c5 ARG1 e1
+c5 ARG2 "speaker"
+b3 Theme c6
+c6 ARG1 e1
+c6 ARG2 x2
+b3 time.n.01 c7
+c7 ARG1 t1
+b3 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b3 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+b3 Manner c10
+c10 ARG1 e1
+c10 ARG2 x3
+b3 politely.r.01 c11 % politely 2-10
+c11 ARG1 x3
+
+%%% DRG: 30
+%%% ø Tom whispered something in ø Mary 's ear and she nodded .
+b2 continuation b5
+b2 parallel b5
+b5 REF e2
+b5 REF t2
+b3 female.n.02 c15 % she 42-45
+c15 ARG1 x3
+b5 nod.v.02 c16 % nodded 46-52
+c16 ARG1 e2
+b5 Agent c17
+c17 ARG1 e2
+c17 ARG2 x3
+b5 time.n.01 c18
+c18 ARG1 t2
+b5 Time c19
+c19 ARG1 e2
+c19 ARG2 t2
+b5 temp_before c20
+c20 ARG1 t2
+c20 ARG2 "now"
+b1 REF x1
+b2 REF x2
+b2 REF e1
+b3 REF x3
+b4 REF x4
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 thing.n.12 c3 % something 14-23
+c3 ARG1 x2
+b2 whisper.v.01 c4 % whispered 4-13
+c4 ARG1 e1
+b2 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 Topic c6
+c6 ARG1 e1
+c6 ARG2 x2
+b3 person.n.01 c7
+c7 ARG1 x3
+b3 Named c8 % Mary 27-31
+c8 ARG1 x3
+c8 ARG2 "mary"
+b4 ear.n.01 c9 % ear 34-37
+c9 ARG1 x4
+b4 of c10
+c10 ARG1 x4
+c10 ARG2 x3
+b2 Recipient c11 % in 24-26
+c11 ARG1 e1
+c11 ARG2 x4
+b2 time.n.01 c12
+c12 ARG1 t1
+b2 Time c13
+c13 ARG1 e1
+c13 ARG2 t1
+b2 temp_before c14
+c14 ARG1 t1
+c14 ARG2 "now"
+
+%%% DRG: 31
+%%% The fire alarm rang .
+b1 REF x1 % The 0-3
+b1 REF x2
+b2 REF e1
+b2 REF t1
+b1 fire.n.01 c1 % fire 4-8
+c1 ARG1 x2
+b1 in c2
+c2 ARG1 x1
+c2 ARG2 x2
+b1 alarm.n.02 c3 % alarm 9-14
+c3 ARG1 x1
+b2 ring.v.01 c4 % rang 15-19
+c4 ARG1 e1
+b2 Theme c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b2 temp_before c8
+c8 ARG1 t1
+c8 ARG2 "now"
+
+%%% DRG: 32
+%%% A dog was run over by a truck .
+b1 REF x1 % A 0-1
+b1 REF e1
+b1 REF x2 % a 22-23
+b1 REF t1 % was 6-9
+b1 dog.n.01 c1 % dog 2-5
+c1 ARG1 x1
+b1 run_down.v.03 c2 % run 10-13
+c2 ARG1 e1
+b1 Patient c3
+c3 ARG1 e1
+c3 ARG2 x1
+b1 truck.n.01 c4 % truck 24-29
+c4 ARG1 x2
+b1 Agent c5 % by 19-21
+c5 ARG1 e1
+c5 ARG2 x2
+b1 time.n.01 c6
+c6 ARG1 t1
+b1 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b1 temp_before c8
+c8 ARG1 t1
+c8 ARG2 "now"
+
+%%% DRG: 33
+%%% ø Tom stole her ring .
+b1 REF x1
+b2 REF x2
+b3 REF x3
+b4 REF e1
+b4 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 female.n.02 c3 % her 10-13
+c3 ARG1 x2
+b3 of c4
+c4 ARG1 x3
+c4 ARG2 x2
+b3 ring.n.08 c5 % ring 14-18
+c5 ARG1 x3
+b4 steal.v.01 c6 % stole 4-9
+c6 ARG1 e1
+b4 Theme c7
+c7 ARG1 e1
+c7 ARG2 x1
+b4 Location c8
+c8 ARG1 e1
+c8 ARG2 x3
+b4 time.n.01 c9
+c9 ARG1 t1
+b4 Time c10
+c10 ARG1 e1
+c10 ARG2 t1
+b4 temp_before c11
+c11 ARG1 t1
+c11 ARG2 "now"
+
+%%% DRG: 34
+%%% The old man was sitting on a bench .
+b1 REF x1 % The 0-3
+b1 REF s1
+b2 REF e1
+b2 REF e2
+b2 REF x2 % a 27-28
+b2 REF t1 % was 12-15
+b1 Holder c1
+c1 ARG1 s1
+c1 ARG2 x1
+b1 old.a.01 c2 % old 4-7
+c2 ARG1 s1
+b1 man.n.01 c3 % man 8-11
+c3 ARG1 x1
+b2 sit.v.01 c4 % sitting 16-23
+c4 ARG1 e1
+b2 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 state.n.1 c6
+c6 ARG1 e2
+b2 PROG c7
+c7 ARG1 e1
+c7 ARG2 e2
+b2 bench.n.01 c8 % bench 29-34
+c8 ARG1 x2
+b2 Instrument c9 % on 24-26
+c9 ARG1 e2
+c9 ARG2 x2
+b2 time.n.01 c10
+c10 ARG1 t1
+b2 Time c11
+c11 ARG1 e2
+c11 ARG2 t1
+b2 temp_before c12
+c12 ARG1 t1
+c12 ARG2 "now"
+
+%%% DRG: 35
+%%% ø Tom whispered something into ø Mary 's ear and she smiled .
+b2 continuation b5
+b2 parallel b5
+b5 REF e2
+b5 REF t2
+b3 female.n.02 c15 % she 44-47
+c15 ARG1 x3
+b5 smile.v.02 c16 % smiled 48-54
+c16 ARG1 e2
+b5 Agent c17
+c17 ARG1 e2
+c17 ARG2 x3
+b5 time.n.01 c18
+c18 ARG1 t2
+b5 Time c19
+c19 ARG1 e2
+c19 ARG2 t2
+b5 temp_before c20
+c20 ARG1 t2
+c20 ARG2 "now"
+b1 REF x1
+b2 REF x2
+b2 REF e1
+b3 REF x3
+b4 REF x4
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 thing.n.12 c3 % something 14-23
+c3 ARG1 x2
+b2 whisper.v.01 c4 % whispered 4-13
+c4 ARG1 e1
+b2 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 Topic c6
+c6 ARG1 e1
+c6 ARG2 x2
+b3 person.n.01 c7
+c7 ARG1 x3
+b3 Named c8 % Mary 29-33
+c8 ARG1 x3
+c8 ARG2 "mary"
+b4 ear.n.01 c9 % ear 36-39
+c9 ARG1 x4
+b4 of c10
+c10 ARG1 x4
+c10 ARG2 x3
+b2 Destination c11 % into 24-28
+c11 ARG1 e1
+c11 ARG2 x4
+b2 time.n.01 c12
+c12 ARG1 t1
+b2 Time c13
+c13 ARG1 e1
+c13 ARG2 t1
+b2 temp_before c14
+c14 ARG1 t1
+c14 ARG2 "now"
+
+%%% DRG: 36
+%%% The engineer climbed the telephone~pole .
+b1 REF x1 % The 0-3
+b1 REF x2
+b2 REF x3 % the 21-24
+b3 REF e1
+b3 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Role c2
+c2 ARG1 x1
+c2 ARG2 x2
+b1 engineer.n.01 c3 % engineer 4-12
+c3 ARG1 x2
+b2 telephone_pole.n.01 c4 % telephone~pole 25-39
+c4 ARG1 x3
+b3 climb.v.01 c5 % climbed 13-20
+c5 ARG1 e1
+b3 Agent c6
+c6 ARG1 e1
+c6 ARG2 x1
+b3 Theme c7
+c7 ARG1 e1
+c7 ARG2 x3
+b3 time.n.01 c8
+c8 ARG1 t1
+b3 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b3 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+
+%%% DRG: 37
+%%% I 'm an ex marine .
+b1 REF x1 % an 4-6
+b1 REF t1
+b1 REF x2
+b1 time.n.01 c1
+c1 ARG1 t1
+b1 temp_before c2 % ex 7-9
+c2 ARG1 t1
+c2 ARG2 "now"
+b1 marine.n.02 c3 % marine 10-16
+c3 ARG1 x2
+b1 Role c4
+c4 ARG1 x1
+c4 ARG2 x2
+b1 person.n.01 c5
+c5 ARG1 x1
+b1 Time c6
+c6 ARG1 x2
+c6 ARG2 t1
+b1 EQU c7 % 'm 1-3
+c7 ARG "speaker"
+c7 ARG x1
+
+%%% DRG: 38
+%%% ø Tom used to be a mama's~boy .
+b1 REF x1
+b2 REF x2 % a 15-16
+b2 REF x3
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 mother's_boy.n.01 c3 % mama's~boy 17-27
+c3 ARG1 x3
+b2 Role c4
+c4 ARG1 x2
+c4 ARG2 x3
+b2 person.n.01 c5
+c5 ARG1 x2
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 temp_before c7 % be 12-14
+c7 ARG1 t1
+c7 ARG2 "now"
+b2 Time c8
+c8 ARG1 x3
+c8 ARG2 t1
+b2 EQU c9
+c9 ARG x1
+c9 ARG x2
+
+%%% DRG: 39
+%%% ø Melanie waved her hand .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Melanie 0-7
+c2 ARG1 x1
+c2 ARG2 "melanie"
+b1 female.n.02 c3 % her 14-17
+c3 ARG1 x1
+b2 hand.n.01 c4 % hand 18-22
+c4 ARG1 x2
+b2 of c5
+c5 ARG1 x2
+c5 ARG2 x1
+b3 beckon.v.01 c6 % waved 8-13
+c6 ARG1 e1
+b3 Agent c7
+c7 ARG1 e1
+c7 ARG2 x1
+b3 Patient c8
+c8 ARG1 e1
+c8 ARG2 x2
+b3 time.n.01 c9
+c9 ARG1 t1
+b3 Time c10
+c10 ARG1 e1
+c10 ARG2 t1
+b3 temp_before c11
+c11 ARG1 t1
+c11 ARG2 "now"
+
+%%% DRG: 40
+%%% Do you prefer ø white~wine or ø red~wine ?
+b1 DIS c1 % or 25-27
+c1 ARG1 b2
+c1 ARG2 b3
+b3 REF x2
+b3 REF e2
+b3 REF t2
+b3 red_wine.n.01 c9 % red~wine 28-36
+c9 ARG1 x2
+b3 prefer.v.01 c10
+c10 ARG1 e2
+b3 Experiencer c11
+c11 ARG1 e2
+c11 ARG2 "hearer"
+b3 Stimulus c12
+c12 ARG1 e2
+c12 ARG2 x2
+b3 time.n.01 c13
+c13 ARG1 t2
+b3 Time c14
+c14 ARG1 e2
+c14 ARG2 t2
+b3 EQU c15
+c15 ARG t2
+c15 ARG "now"
+b2 REF x1
+b2 REF e1
+b2 REF t1 % Do 0-2
+b2 white_wine.n.01 c2 % white~wine 14-24
+c2 ARG1 x1
+b2 prefer.v.01 c3 % prefer 7-13
+c3 ARG1 e1
+b2 Experiencer c4
+c4 ARG1 e1
+c4 ARG2 "hearer"
+b2 Stimulus c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b2 EQU c8
+c8 ARG t1
+c8 ARG "now"
+
+%%% DRG: 41
+%%% ø Tom ripped off his shirt .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b1 male.n.02 c3 % his 15-18
+c3 ARG1 x1
+b2 shirt.n.01 c4 % shirt 19-24
+c4 ARG1 x2
+b2 of c5
+c5 ARG1 x2
+c5 ARG2 x1
+b3 tear_away.v.01 c6 % ripped 4-10
+c6 ARG1 e1
+b3 Agent c7
+c7 ARG1 e1
+c7 ARG2 x1
+b3 Theme c8
+c8 ARG1 e1
+c8 ARG2 x2
+b3 time.n.01 c9
+c9 ARG1 t1
+b3 Time c10
+c10 ARG1 e1
+c10 ARG2 t1
+b3 temp_before c11
+c11 ARG1 t1
+c11 ARG2 "now"
+
+%%% DRG: 42
+%%% Someone stole my driving~licence .
+b1 REF x1
+b2 REF x2
+b1 REF e1
+b1 REF t1
+b1 person.n.12 c1 % Someone 0-7
+c1 ARG1 x1
+b2 driver's_license.n.01 c2 % driving~licence 17-32
+c2 ARG1 x2
+b2 of c3 % my 14-16
+c3 ARG1 x2
+c3 ARG2 "speaker"
+b1 steal.v.01 c4 % stole 8-13
+c4 ARG1 e1
+b1 Theme c5
+c5 ARG1 e1
+c5 ARG2 x1
+b1 Location c6
+c6 ARG1 e1
+c6 ARG2 x2
+b1 time.n.01 c7
+c7 ARG1 t1
+b1 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b1 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 43
+%%% You should turn off the mobile~phone .
+b1 NEC b3 % should 4-10
+b2 REF x1 % the 20-23
+b3 REF e1
+b2 cellular_telephone.n.01 c1 % mobile~phone 24-36
+c1 ARG1 x1
+b3 switch_off.v.01 c2 % turn 11-15
+c2 ARG1 e1
+b3 Agent c3
+c3 ARG1 e1
+c3 ARG2 "hearer"
+b3 Theme c4
+c4 ARG1 e1
+c4 ARG2 x1
+
+%%% DRG: 44
+%%% He will wait .
+b1 REF x1
+b2 REF e1
+b2 REF t1 % will 3-7
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 wait.v.01 c2 % wait 8-12
+c2 ARG1 e1
+b2 Theme c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 time.n.01 c4
+c4 ARG1 t1
+b2 Time c5
+c5 ARG1 e1
+c5 ARG2 t1
+b2 temp_before c6
+c6 ARG1 "now"
+c6 ARG2 t1
+
+%%% DRG: 45
+%%% He hung up before I finished .
+b1 REF x1
+b2 REF e1
+b2 REF t1
+b2 REF p1
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 hang_up.v.03 c2 % hung 3-7
+c2 ARG1 e1
+b2 Patient c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 time.n.01 c4
+c4 ARG1 t1
+b2 Time c5
+c5 ARG1 e1
+c5 ARG2 t1
+b2 temp_before c6
+c6 ARG1 t1
+c6 ARG2 "now"
+b2 before c7 % before 11-17
+c7 ARG1 e1
+c7 ARG2 p1
+b2 PROP c8
+c8 ARG1 p1
+c8 ARG2 b3
+b3 REF e2
+b3 REF t2
+b3 complete.v.01 c9 % finished 20-28
+c9 ARG1 e2
+b3 Theme c10
+c10 ARG1 e2
+c10 ARG2 "speaker"
+b3 time.n.01 c11
+c11 ARG1 t2
+b3 Time c12
+c12 ARG1 e2
+c12 ARG2 t2
+b3 temp_before c13
+c13 ARG1 t2
+c13 ARG2 "now"
+
+%%% DRG: 46
+%%% I slept on the boat .
+b1 REF e1
+b2 REF x1 % the 11-14
+b1 REF t1
+b1 sleep.v.01 c1 % slept 2-7
+c1 ARG1 e1
+b1 Agent c2
+c2 ARG1 e1
+c2 ARG2 "speaker"
+b2 boat.n.01 c3 % boat 15-19
+c3 ARG1 x1
+b1 Location c4 % on 8-10
+c4 ARG1 e1
+c4 ARG2 x1
+b1 time.n.01 c5
+c5 ARG1 t1
+b1 Time c6
+c6 ARG1 e1
+c6 ARG2 t1
+b1 temp_before c7
+c7 ARG1 t1
+c7 ARG2 "now"
+
+%%% DRG: 47
+%%% My mobile~phone is handy .
+b1 REF x1
+b2 REF x2
+b2 REF t1 % is 16-18
+b1 cellular_telephone.n.01 c1 % mobile~phone 3-15
+c1 ARG1 x1
+b1 of c2 % My 0-2
+c2 ARG1 x1
+c2 ARG2 "speaker"
+b2 handy.s.02 c3 % handy 19-24
+c3 ARG1 x2
+b2 Holder c4
+c4 ARG1 x2
+c4 ARG2 x1
+b2 time.n.01 c5
+c5 ARG1 t1
+b2 Time c6
+c6 ARG1 x2
+c6 ARG2 t1
+b2 EQU c7
+c7 ARG t1
+c7 ARG "now"
+
+%%% DRG: 48
+%%% If we do n't hurry , we 'll miss our train .
+b1 IMP c1 % If 0-2
+c1 ARG1 b2
+c1 ARG2 b5
+b4 REF x1
+b5 REF e2
+b5 REF t2 % 'll 21-24
+b4 of c7 % our 30-33
+c7 ARG1 x1
+c7 ARG2 "speaker"
+b4 train.n.01 c8 % train 34-39
+c8 ARG1 x1
+b5 miss.v.05 c9 % miss 25-29
+c9 ARG1 e2
+b5 Experiencer c10
+c10 ARG1 e2
+c10 ARG2 "speaker"
+b5 Stimulus c11
+c11 ARG1 e2
+c11 ARG2 x1
+b5 time.n.01 c12
+c12 ARG1 t2
+b5 Time c13
+c13 ARG1 e2
+c13 ARG2 t2
+b5 temp_before c14
+c14 ARG1 "now"
+c14 ARG2 t2
+b2 NOT b3 % n't 8-11
+b3 REF e1
+b3 REF t1 % do 6-8
+b3 travel_rapidly.v.01 c2 % hurry 12-17
+c2 ARG1 e1
+b3 Theme c3
+c3 ARG1 e1
+c3 ARG2 "speaker"
+b3 time.n.01 c4
+c4 ARG1 t1
+b3 Time c5
+c5 ARG1 e1
+c5 ARG2 t1
+b3 EQU c6
+c6 ARG t1
+c6 ARG "now"
+
+%%% DRG: 49
+%%% ø Pedro has no sisters .
+b1 REF x1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Pedro 0-5
+c2 ARG1 x1
+c2 ARG2 "pedro"
+b2 NOT b3 % no 10-12
+b3 REF x2
+b3 sister.n.01 c3 % sisters 13-20
+c3 ARG1 x2
+b3 of c4 % has 6-9
+c4 ARG1 x2
+c4 ARG2 x1
+
+%%% DRG: 50
+%%% She crumbled a biscuit .
+b1 REF x1
+b2 REF x2 % a 13-14
+b2 REF e1
+b2 REF t1
+b1 female.n.02 c1 % She 0-3
+c1 ARG1 x1
+b2 cookie.n.01 c2 % biscuit 15-22
+c2 ARG1 x2
+b2 crumble.v.02 c3 % crumbled 4-12
+c3 ARG1 e1
+b2 Agent c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 Patient c5
+c5 ARG1 e1
+c5 ARG2 x2
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b2 temp_before c8
+c8 ARG1 t1
+c8 ARG2 "now"
+
+%%% DRG: 51
+%%% Every body but ø Tom smiled .
+b1 IMP c1
+c1 ARG1 b2
+c1 ARG2 b5
+b5 REF e1
+b5 REF t1
+b5 smile.v.01 c6 % smiled 18-24
+c6 ARG1 e1
+b5 Agent c7
+c7 ARG1 e1
+c7 ARG2 x1
+b5 time.n.01 c8
+c8 ARG1 t1
+b5 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b5 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+b2 REF x1 % Every 0-5
+b2 person.n.01 c2 % body 5-9
+c2 ARG1 x1
+b2 NOT b4 % but 10-13
+b3 REF x2
+b3 person.n.01 c3
+c3 ARG1 x2
+b3 Named c4 % Tom 14-17
+c4 ARG1 x2
+c4 ARG2 "tom"
+b4 EQU c5 % but 10-13
+c5 ARG x1
+c5 ARG x2
+
+%%% DRG: 52
+%%% This will continue .
+b1 REF x1
+b2 REF e1
+b2 REF t1 % will 5-9
+b1 thing.n.12 c1 % This 0-4
+c1 ARG1 x1
+b2 continue.v.01 c2 % continue 10-18
+c2 ARG1 e1
+b2 Theme c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 time.n.01 c4
+c4 ARG1 t1
+b2 Time c5
+c5 ARG1 e1
+c5 ARG2 t1
+b2 temp_before c6
+c6 ARG1 "now"
+c6 ARG2 t1
+
+%%% DRG: 53
+%%% The police showed me your picture .
+b1 REF x1 % The 0-3
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b1 police.n.01 c1 % police 4-10
+c1 ARG1 x1
+b2 picture.n.01 c2 % picture 26-33
+c2 ARG1 x2
+b2 of c3 % your 21-25
+c3 ARG1 x2
+c3 ARG2 "hearer"
+b3 show.v.04 c4 % showed 11-17
+c4 ARG1 e1
+b3 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b3 Attribute c6
+c6 ARG1 e1
+c6 ARG2 "speaker"
+b3 Theme c7
+c7 ARG1 e1
+c7 ARG2 x2
+b3 time.n.01 c8
+c8 ARG1 t1
+b3 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b3 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+
+%%% DRG: 54
+%%% My watch was stolen .
+b1 REF x1
+b2 REF e1
+b2 REF t1 % was 9-12
+b1 watch.n.01 c1 % watch 3-8
+c1 ARG1 x1
+b1 of c2 % My 0-2
+c2 ARG1 x1
+c2 ARG2 "speaker"
+b2 steal.v.01 c3 % stolen 13-19
+c3 ARG1 e1
+b2 Theme c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 time.n.01 c5
+c5 ARG1 t1
+b2 Time c6
+c6 ARG1 e1
+c6 ARG2 t1
+b2 temp_before c7
+c7 ARG1 t1
+c7 ARG2 "now"
+
+%%% DRG: 55
+%%% He bade her ø farewell .
+b1 REF x1
+b2 REF x2 % her 8-11
+b2 REF x3
+b2 REF e1
+b2 REF t1
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 farewell.n.01 c2 % farewell 12-20
+c2 ARG1 x3
+b2 wish.v.06 c3 % bade 3-7
+c3 ARG1 e1
+b2 Agent c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 Goal c5
+c5 ARG1 e1
+c5 ARG2 x2
+b2 Patient c6
+c6 ARG1 e1
+c6 ARG2 x3
+b2 time.n.01 c7
+c7 ARG1 t1
+b2 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b2 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 56
+%%% I do n't trust any one except myself .
+b1 NOT b2 % n't 4-7
+b2 REF x1 % any 14-17
+b2 REF e1
+b2 REF t1 % do 2-4
+b2 person.n.01 c1 % one 17-20
+c1 ARG1 x1
+b2 NOT b3 % except 21-27
+b2 trust.v.01 c3 % trust 8-13
+c3 ARG1 e1
+b2 Experiencer c4
+c4 ARG1 e1
+c4 ARG2 "speaker"
+b2 Stimulus c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b2 EQU c8
+c8 ARG t1
+c8 ARG "now"
+b3 EQU c2 % except 21-27
+c2 ARG x1
+c2 ARG "speaker"
+
+%%% DRG: 57
+%%% ø Tom weighs ø over 90 kilograms .
+b1 REF x1
+b2 REF x2
+b2 REF x3
+b2 REF x4
+b2 REF e1
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 quantity.n.01 c3
+c3 ARG1 x3
+b2 quantity.n.01 c4
+c4 ARG1 x4
+b2 Quantity c5
+c5 ARG1 x2
+c5 ARG2 x3
+b2 Quantity c6 % 90 16-18
+c6 ARG1 x4
+c6 ARG2 "90"
+b2 MOR c7 % over 11-15
+c7 ARG1 x3
+c7 ARG2 x4
+b2 measure.n.02 c8
+c8 ARG1 x2
+b2 unit c9 % kilograms 19-28
+c9 ARG1 x2
+c9 ARG2 "kilogram"
+b2 weigh.v.01 c10 % weighs 4-10
+c10 ARG1 e1
+b2 Theme c11
+c11 ARG1 e1
+c11 ARG2 x1
+b2 Value c12
+c12 ARG1 e1
+c12 ARG2 x2
+b2 time.n.01 c13
+c13 ARG1 t1
+b2 Time c14
+c14 ARG1 e1
+c14 ARG2 t1
+b2 EQU c15
+c15 ARG t1
+c15 ARG "now"
+
+%%% DRG: 58
+%%% He had his socks on inside~out .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b3 REF x3
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b1 male.n.02 c2 % his 7-10
+c2 ARG1 x1
+b2 of c3
+c3 ARG1 x2
+c3 ARG2 x1
+b2 sock.n.01 c4 % socks 11-16
+c4 ARG1 x2
+b3 wear.v.01 c5 % had 3-6
+c5 ARG1 e1
+b3 Agent c6
+c6 ARG1 e1
+c6 ARG2 x1
+b3 Theme c7
+c7 ARG1 e1
+c7 ARG2 x2
+b3 time.n.01 c8
+c8 ARG1 t1
+b3 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b3 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+b3 Manner c11
+c11 ARG1 e1
+c11 ARG2 x3
+b3 inside_out.r.01 c12 % inside~out 20-30
+c12 ARG1 x3
+
+%%% DRG: 59
+%%% ø Tom is strong .
+b1 REF x1
+b2 REF s1
+b2 REF t1 % is 4-6
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 strong.a.01 c3 % strong 7-13
+c3 ARG1 s1
+b2 Holder c4
+c4 ARG1 s1
+c4 ARG2 x1
+b2 time.n.01 c5
+c5 ARG1 t1
+b2 Time c6
+c6 ARG1 s1
+c6 ARG2 t1
+b2 EQU c7
+c7 ARG t1
+c7 ARG "now"
+
+%%% DRG: 60
+%%% ø Tom shook everybody 's hands .
+b1 REF x1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 IMP c3
+c3 ARG1 b3
+c3 ARG2 b4
+b2 REF x3
+b4 REF e1
+b4 REF t1
+b2 hand.n.01 c5 % hands 22-27
+c5 ARG1 x3
+b2 of c6
+c6 ARG1 x3
+c6 ARG2 x2
+b4 shake.v.09 c7 % shook 4-9
+c7 ARG1 e1
+b4 Stimulus c8
+c8 ARG1 e1
+c8 ARG2 x1
+b4 Experiencer c9
+c9 ARG1 e1
+c9 ARG2 x3
+b4 time.n.01 c10
+c10 ARG1 t1
+b4 Time c11
+c11 ARG1 e1
+c11 ARG2 t1
+b4 temp_before c12
+c12 ARG1 t1
+c12 ARG2 "now"
+b3 REF x2
+b3 person.n.01 c4 % everybody 10-19
+c4 ARG1 x2
+
+%%% DRG: 61
+%%% ø Tom sealed the envelope .
+b1 REF x1
+b2 REF x2 % the 11-14
+b3 REF e1
+b3 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 envelope.n.01 c3 % envelope 15-23
+c3 ARG1 x2
+b3 seal.v.02 c4 % sealed 4-10
+c4 ARG1 e1
+b3 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b3 Patient c6
+c6 ARG1 e1
+c6 ARG2 x2
+b3 time.n.01 c7
+c7 ARG1 t1
+b3 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b3 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 62
+%%% He wears ø designer glasses .
+b1 REF x1
+b2 REF x2
+b2 REF x3
+b2 REF e1
+b2 REF t1
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 designer.n.01 c2 % designer 9-17
+c2 ARG1 x3
+b2 role c3
+c3 ARG1 x2
+c3 ARG2 x3
+b2 spectacles.n.01 c4 % glasses 18-25
+c4 ARG1 x2
+b2 wear.v.02 c5 % wears 3-8
+c5 ARG1 e1
+b2 Agent c6
+c6 ARG1 e1
+c6 ARG2 x1
+b2 Theme c7
+c7 ARG1 e1
+c7 ARG2 x2
+b2 time.n.01 c8
+c8 ARG1 t1
+b2 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b2 EQU c10
+c10 ARG t1
+c10 ARG "now"
+
+%%% DRG: 63
+%%% She shook her head .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b1 female.n.02 c1 % She 0-3
+c1 ARG1 x1
+b1 female.n.02 c2 % her 10-13
+c2 ARG1 x1
+b2 head.n.01 c3 % head 14-18
+c3 ARG1 x2
+b2 of c4
+c4 ARG1 x2
+c4 ARG2 x1
+b3 shake.v.09 c5 % shook 4-9
+c5 ARG1 e1
+b3 Stimulus c6
+c6 ARG1 e1
+c6 ARG2 x1
+b3 Experiencer c7
+c7 ARG1 e1
+c7 ARG2 x2
+b3 time.n.01 c8
+c8 ARG1 t1
+b3 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b3 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+
+%%% DRG: 64
+%%% He painted a dog .
+b1 REF x1
+b2 REF x2 % a 11-12
+b2 REF e1
+b2 REF t1
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 dog.n.01 c2 % dog 13-16
+c2 ARG1 x2
+b2 paint.v.03 c3 % painted 3-10
+c3 ARG1 e1
+b2 Agent c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 Patient c5
+c5 ARG1 e1
+c5 ARG2 x2
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 Time c7
+c7 ARG1 e1
+c7 ARG2 t1
+b2 temp_before c8
+c8 ARG1 t1
+c8 ARG2 "now"
+
+%%% DRG: 65
+%%% ø Tom has ø three apple~trees in his yard .
+b1 REF x1
+b2 REF x2
+b2 REF e1
+b2 REF t1
+b3 REF x3
+b4 REF x4
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 Quantity c3 % three 8-13
+c3 ARG1 x2
+c3 ARG2 "3"
+b2 apple_tree.n.01 c4 % apple~trees 14-25
+c4 ARG1 x2
+b2 have.v.02 c5 % has 4-7
+c5 ARG1 e1
+b2 Agent c6
+c6 ARG1 e1
+c6 ARG2 x1
+b2 Patient c7
+c7 ARG1 e1
+c7 ARG2 x2
+b2 time.n.01 c8
+c8 ARG1 t1
+b2 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b2 EQU c10
+c10 ARG t1
+c10 ARG "now"
+b3 male.n.02 c11 % his 29-32
+c11 ARG1 x3
+b4 of c12
+c12 ARG1 x4
+c12 ARG2 x3
+b4 yard.n.02 c13 % yard 33-37
+c13 ARG1 x4
+b2 Instrument c14 % in 26-28
+c14 ARG1 e1
+c14 ARG2 x4
+
+%%% DRG: 66
+%%% ø Possums feed on ø eucalyptus~trees .
+b1 REF x1
+b1 REF e1
+b1 REF x2
+b1 opossum.n.02 c1 % Possums 0-7
+c1 ARG1 x1
+b1 feed.v.06 c2 % feed 8-12
+c2 ARG1 e1
+b1 Patient c3
+c3 ARG1 e1
+c3 ARG2 x1
+b1 eucalyptus.n.02 c4 % eucalyptus~trees 16-32
+c4 ARG1 x2
+b1 Instrument c5 % on 13-15
+c5 ARG1 e1
+c5 ARG2 x2
+
+%%% DRG: 67
+%%% ø Tom had ø jet~lag .
+b1 REF x1
+b2 REF x2
+b2 REF e1
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 jet_lag.n.01 c3 % jet~lag 8-15
+c3 ARG1 x2
+b2 have.v.12 c4 % had 4-7
+c4 ARG1 e1
+b2 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 Patient c6
+c6 ARG1 e1
+c6 ARG2 x2
+b2 time.n.01 c7
+c7 ARG1 t1
+b2 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b2 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 68
+%%% ø Gerhardt~Schroeder was accused of helping ø VW .
+b1 REF x1
+b2 REF e1
+b2 REF p1
+b2 REF t1 % was 19-22
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Gerhardt~Schroeder 0-18
+c2 ARG1 x1
+c2 ARG2 "gerhardt~schroeder"
+b2 accuse.v.01 c3 % accused 23-30
+c3 ARG1 e1
+b2 Theme c4
+c4 ARG1 e1
+c4 ARG2 x1
+b2 Topic c5 % of 31-33
+c5 ARG1 e1
+c5 ARG2 p1
+b2 PROP c6
+c6 ARG1 p1
+c6 ARG2 b3
+b2 time.n.01 c12
+c12 ARG1 t1
+b2 Time c13
+c13 ARG1 e1
+c13 ARG2 t1
+b2 temp_before c14
+c14 ARG1 t1
+c14 ARG2 "now"
+b3 REF x2
+b4 REF x3
+b3 REF e2
+b4 organization.n.01 c7
+c7 ARG1 x3
+b4 Named c8 % VW 42-44
+c8 ARG1 x3
+c8 ARG2 "vw"
+b3 help.v.01 c9 % helping 34-41
+c9 ARG1 e2
+b3 Agent c10
+c10 ARG1 e2
+c10 ARG2 x2
+b3 Beneficiary c11
+c11 ARG1 e2
+c11 ARG2 x3
+
+%%% DRG: 69
+%%% ø Tom robbed a bank .
+b1 REF x1
+b2 REF x2 % a 11-12
+b2 REF e1
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 depository_financial_institution.n.01 c3 % bank 13-17
+c3 ARG1 x2
+b2 rob.v.01 c4 % robbed 4-10
+c4 ARG1 e1
+b2 Agent c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 Source c6
+c6 ARG1 e1
+c6 ARG2 x2
+b2 time.n.01 c7
+c7 ARG1 t1
+b2 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b2 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 70
+%%% You should n't trust ø Tom .
+b1 NEC b2 % should 4-10
+b2 NOT b4 % n't 10-13
+b3 REF x1
+b4 REF e1
+b3 person.n.01 c1
+c1 ARG1 x1
+b3 Named c2 % Tom 20-23
+c2 ARG1 x1
+c2 ARG2 "tom"
+b4 trust.v.01 c3 % trust 14-19
+c3 ARG1 e1
+b4 Experiencer c4
+c4 ARG1 e1
+c4 ARG2 "hearer"
+b4 Stimulus c5
+c5 ARG1 e1
+c5 ARG2 x1
+
+%%% DRG: 71
+%%% ø Mary bought herself a microscope .
+b1 REF x1 % a 20-21
+b2 REF x2
+b1 REF e1
+b1 REF t1
+b1 microscope.n.01 c1 % microscope 22-32
+c1 ARG1 x1
+b2 person.n.01 c2
+c2 ARG1 x2
+b2 Named c3 % Mary 0-4
+c3 ARG1 x2
+c3 ARG2 "mary"
+b1 buy.v.01 c4 % bought 5-11
+c4 ARG1 e1
+b1 Agent c5
+c5 ARG1 e1
+c5 ARG2 x2
+b1 Theme c6
+c6 ARG1 e1
+c6 ARG2 x1
+b1 Beneficiary c7
+c7 ARG1 e1
+c7 ARG2 x2
+b1 time.n.01 c8
+c8 ARG1 t1
+b1 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b1 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+
+%%% DRG: 72
+%%% The squirrel is hibernating .
+b1 REF x1 % The 0-3
+b2 REF e1
+b2 REF e2
+b2 REF t1 % is 13-15
+b1 squirrel.n.01 c1 % squirrel 4-12
+c1 ARG1 x1
+b2 hibernate.v.01 c2 % hibernating 16-27
+c2 ARG1 e1
+b2 Patient c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 state.n.1 c4
+c4 ARG1 e2
+b2 PROG c5
+c5 ARG1 e1
+c5 ARG2 e2
+b2 time.n.01 c6
+c6 ARG1 t1
+b2 Time c7
+c7 ARG1 e2
+c7 ARG2 t1
+b2 EQU c8
+c8 ARG t1
+c8 ARG "now"
+
+%%% DRG: 73
+%%% ø Aurore~Paquiss married ø Chabrol .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Aurore~Paquiss 0-14
+c2 ARG1 x1
+c2 ARG2 "aurore~paquiss"
+b2 person.n.01 c3
+c3 ARG1 x2
+b2 Named c4 % Chabrol 23-30
+c4 ARG1 x2
+c4 ARG2 "chabrol"
+b3 marry.v.01 c5 % married 15-22
+c5 ARG1 e1
+b3 Agent c6
+c6 ARG1 e1
+c6 ARG2 x1
+b3 Patient c7
+c7 ARG1 e1
+c7 ARG2 x2
+b3 time.n.01 c8
+c8 ARG1 t1
+b3 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b3 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+
+%%% DRG: 74
+%%% ø Tom bought an expensive sports~car .
+b1 REF x1
+b2 REF x2 % an 11-13
+b2 REF s1
+b2 REF e1
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 Holder c3
+c3 ARG1 s1
+c3 ARG2 x2
+b2 expensive.a.01 c4 % expensive 14-23
+c4 ARG1 s1
+b2 sports_car.n.01 c5 % sports~car 24-34
+c5 ARG1 x2
+b2 buy.v.01 c6 % bought 4-10
+c6 ARG1 e1
+b2 Agent c7
+c7 ARG1 e1
+c7 ARG2 x1
+b2 Theme c8
+c8 ARG1 e1
+c8 ARG2 x2
+b2 time.n.01 c9
+c9 ARG1 t1
+b2 Time c10
+c10 ARG1 e1
+c10 ARG2 t1
+b2 temp_before c11
+c11 ARG1 t1
+c11 ARG2 "now"
+
+%%% DRG: 75
+%%% He claimed that ø Ms Kleding had overstepped her competences .
+b1 REF x1
+b2 REF e1
+b2 REF p1
+b2 REF t1
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 claim.v.01 c2 % claimed 3-10
+c2 ARG1 e1
+b2 Agent c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 Theme c4
+c4 ARG1 e1
+c4 ARG2 p1
+b2 PROP c5
+c5 ARG1 p1
+c5 ARG2 b5
+b2 time.n.01 c20
+c20 ARG1 t1
+b2 Time c21
+c21 ARG1 e1
+c21 ARG2 t1
+b2 temp_before c22
+c22 ARG1 t1
+c22 ARG2 "now"
+b3 REF x3
+b3 REF x2
+b4 REF x4
+b5 REF e2
+b5 REF e3
+b5 REF t2 % had 27-30
+b3 ms.n.01 c6 % Ms 16-18
+c6 ARG1 x3
+b3 role c7
+c7 ARG1 x2
+c7 ARG2 x3
+b3 person.n.01 c8
+c8 ARG1 x2
+b3 Named c9 % Kleding 19-26
+c9 ARG1 x2
+c9 ARG2 "kleding"
+b3 female.n.02 c10 % her 43-46
+c10 ARG1 x2
+b4 competence.n.01 c11 % competences 47-58
+c11 ARG1 x4
+b4 of c12
+c12 ARG1 x4
+c12 ARG2 x2
+b5 transgress.v.04 c13 % overstepped 31-42
+c13 ARG1 e2
+b5 Theme c14
+c14 ARG1 e2
+c14 ARG2 x2
+b5 Theme c15
+c15 ARG1 e2
+c15 ARG2 x4
+b5 PERF c16
+c16 ARG1 e2
+c16 ARG2 e3
+b5 time.n.01 c17
+c17 ARG1 t2
+b5 Time c18
+c18 ARG1 e3
+c18 ARG2 t2
+b5 temp_before c19
+c19 ARG1 t2
+c19 ARG2 "now"
+
+%%% DRG: 76
+%%% Someone stole my bag .
+b1 REF x1
+b2 REF x2
+b1 REF e1
+b1 REF t1
+b1 person.n.12 c1 % Someone 0-7
+c1 ARG1 x1
+b2 bag.n.01 c2 % bag 17-20
+c2 ARG1 x2
+b2 of c3 % my 14-16
+c3 ARG1 x2
+c3 ARG2 "speaker"
+b1 steal.v.01 c4 % stole 8-13
+c4 ARG1 e1
+b1 Theme c5
+c5 ARG1 e1
+c5 ARG2 x1
+b1 Location c6
+c6 ARG1 e1
+c6 ARG2 x2
+b1 time.n.01 c7
+c7 ARG1 t1
+b1 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b1 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 77
+%%% The results are set down in ø recommendations to improve ø plant safety .
+b1 REF x1 % The 0-3
+b2 REF e1
+b2 REF x2
+b2 REF x3 % ø 55--2
+b2 REF x4
+b2 REF e2
+b2 REF t1 % are 12-15
+b1 consequence.n.01 c1 % results 4-11
+c1 ARG1 x1
+b2 write_down.v.01 c2 % set 16-19
+c2 ARG1 e1
+b2 Theme c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 recommendation.n.01 c4 % recommendations 28-43
+c4 ARG1 x2
+b2 plant.n.01 c5 % plant 55-60
+c5 ARG1 x4
+b2 of c6
+c6 ARG1 x3
+c6 ARG2 x4
+b2 safety.n.01 c7 % safety 61-67
+c7 ARG1 x3
+b2 better.v.02 c8 % improve 47-54
+c8 ARG1 e2
+b2 Agent c9
+c9 ARG1 e2
+c9 ARG2 x2
+b2 Patient c10
+c10 ARG1 e2
+c10 ARG2 x3
+b2 Instrument c11 % in 25-27
+c11 ARG1 e1
+c11 ARG2 x2
+b2 time.n.01 c12
+c12 ARG1 t1
+b2 Time c13
+c13 ARG1 e1
+c13 ARG2 t1
+b2 EQU c14
+c14 ARG t1
+c14 ARG "now"
+
+%%% DRG: 78
+%%% We should do away with these old rules .
+b1 NEC b2 % should 3-9
+b2 REF e1
+b3 REF x1 % these 23-28
+b3 REF s1
+b2 extinguish.v.04 c1 % do 10-12
+c1 ARG1 e1
+b2 Agent c2
+c2 ARG1 e1
+c2 ARG2 "speaker"
+b3 Holder c3
+c3 ARG1 s1
+c3 ARG2 x1
+b3 old.a.02 c4 % old 29-32
+c4 ARG1 s1
+b3 rule.n.01 c5 % rules 33-38
+c5 ARG1 x1
+b2 Topic c6 % with 18-22
+c6 ARG1 e1
+c6 ARG2 x1
+
+%%% DRG: 79
+%%% The elephant was killed by the hunter .
+b1 REF x1 % The 0-3
+b2 REF e1
+b3 REF x2 % the 27-30
+b3 REF x3
+b2 REF t1 % was 13-16
+b1 elephant.n.01 c1 % elephant 4-12
+c1 ARG1 x1
+b2 kill.v.01 c2 % killed 17-23
+c2 ARG1 e1
+b2 Patient c3
+c3 ARG1 e1
+c3 ARG2 x1
+b3 person.n.01 c4
+c4 ARG1 x2
+b3 Role c5
+c5 ARG1 x2
+c5 ARG2 x3
+b3 hunter.n.01 c6 % hunter 31-37
+c6 ARG1 x3
+b2 Agent c7 % by 24-26
+c7 ARG1 e1
+c7 ARG2 x2
+b2 time.n.01 c8
+c8 ARG1 t1
+b2 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b2 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+
+%%% DRG: 80
+%%% ø Kohl announced ø economy measures
+b1 REF x1
+b2 REF x2
+b2 REF x3
+b2 REF e1
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Kohl 0-4
+c2 ARG1 x1
+c2 ARG2 "kohl"
+b2 economy.n.01 c3 % economy 15-22
+c3 ARG1 x3
+b2 of c4
+c4 ARG1 x2
+c4 ARG2 x3
+b2 measure.n.01 c5 % measures 23-31
+c5 ARG1 x2
+b2 announce.v.02 c6 % announced 5-14
+c6 ARG1 e1
+b2 Agent c7
+c7 ARG1 e1
+c7 ARG2 x1
+b2 Theme c8
+c8 ARG1 e1
+c8 ARG2 x2
+b2 time.n.01 c9
+c9 ARG1 t1
+b2 Time c10
+c10 ARG1 e1
+c10 ARG2 t1
+b2 temp_before c11
+c11 ARG1 t1
+c11 ARG2 "now"
+
+%%% DRG: 81
+%%% ø Terrorists blew up a bus .
+b1 REF x1
+b1 REF x2
+b1 REF x3 % a 19-20
+b1 REF e1
+b1 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Role c2
+c2 ARG1 x1
+c2 ARG2 x2
+b1 terrorist.n.01 c3 % Terrorists 0-10
+c3 ARG1 x2
+b1 bus.n.01 c4 % bus 21-24
+c4 ARG1 x3
+b1 explode.v.01 c5 % blew 11-15
+c5 ARG1 e1
+b1 Agent c6
+c6 ARG1 e1
+c6 ARG2 x1
+b1 Theme c7
+c7 ARG1 e1
+c7 ARG2 x3
+b1 time.n.01 c8
+c8 ARG1 t1
+b1 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b1 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+
+%%% DRG: 82
+%%% ø Tom needed a hammer .
+b1 REF x1
+b2 REF x2 % a 11-12
+b2 REF e1
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 hammer.n.02 c3 % hammer 13-19
+c3 ARG1 x2
+b2 necessitate.v.01 c4 % needed 4-10
+c4 ARG1 e1
+b2 Pivot c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 Theme c6
+c6 ARG1 e1
+c6 ARG2 x2
+b2 time.n.01 c7
+c7 ARG1 t1
+b2 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b2 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 83
+%%% ø Kate made an apple~pie .
+b1 REF x1
+b2 REF x2 % an 10-12
+b2 REF e1
+b2 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Kate 0-4
+c2 ARG1 x1
+c2 ARG2 "kate"
+b2 apple_pie.n.01 c3 % apple~pie 13-22
+c3 ARG1 x2
+b2 make.v.15 c4 % made 5-9
+c4 ARG1 e1
+b2 Asset c5
+c5 ARG1 e1
+c5 ARG2 x1
+b2 Result c6
+c6 ARG1 e1
+c6 ARG2 x2
+b2 time.n.01 c7
+c7 ARG1 t1
+b2 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b2 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+
+%%% DRG: 84
+%%% He bowed to his teacher .
+b2 REF e1
+b1 REF x1
+b3 REF x2
+b3 REF x3
+b2 REF t1
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 bow.v.03 c2 % bowed 3-8
+c2 ARG1 e1
+b2 Agent c3
+c3 ARG1 e1
+c3 ARG2 x1
+b1 male.n.02 c4 % his 12-15
+c4 ARG1 x1
+b3 teacher.n.01 c5 % teacher 16-23
+c5 ARG1 x3
+b3 Role c6
+c6 ARG1 x2
+c6 ARG2 x3
+b3 person.n.01 c7
+c7 ARG1 x2
+b3 of c8
+c8 ARG1 x3
+c8 ARG2 x1
+b2 Topic c9 % to 9-11
+c9 ARG1 e1
+c9 ARG2 x2
+b2 time.n.01 c10
+c10 ARG1 t1
+b2 Time c11
+c11 ARG1 e1
+c11 ARG2 t1
+b2 temp_before c12
+c12 ARG1 t1
+c12 ARG2 "now"
+
+%%% DRG: 85
+%%% I am driving a truck .
+b1 REF x1 % a 13-14
+b1 REF e1
+b1 REF e2
+b1 REF t1 % am 2-4
+b1 truck.n.01 c1 % truck 15-20
+c1 ARG1 x1
+b1 drive.v.01 c2 % driving 5-12
+c2 ARG1 e1
+b1 Agent c3
+c3 ARG1 e1
+c3 ARG2 "speaker"
+b1 Theme c4
+c4 ARG1 e1
+c4 ARG2 x1
+b1 state.n.1 c5
+c5 ARG1 e2
+b1 PROG c6
+c6 ARG1 e1
+c6 ARG2 e2
+b1 time.n.01 c7
+c7 ARG1 t1
+b1 Time c8
+c8 ARG1 e2
+c8 ARG2 t1
+b1 EQU c9
+c9 ARG t1
+c9 ARG "now"
+
+%%% DRG: 86
+%%% ø King Henry~II banned ø tournaments .
+b1 REF x1
+b1 REF x2
+b2 REF x3
+b2 REF e1
+b2 REF t1
+b1 king.n.01 c1 % King 0-4
+c1 ARG1 x2
+b1 role c2
+c2 ARG1 x1
+c2 ARG2 x2
+b1 person.n.01 c3
+c3 ARG1 x1
+b1 Named c4 % Henry~II 5-13
+c4 ARG1 x1
+c4 ARG2 "henry~ii"
+b2 tournament.n.02 c5 % tournaments 21-32
+c5 ARG1 x3
+b2 ban.v.02 c6 % banned 14-20
+c6 ARG1 e1
+b2 Agent c7
+c7 ARG1 e1
+c7 ARG2 x1
+b2 Theme c8
+c8 ARG1 e1
+c8 ARG2 x3
+b2 time.n.01 c9
+c9 ARG1 t1
+b2 Time c10
+c10 ARG1 e1
+c10 ARG2 t1
+b2 temp_before c11
+c11 ARG1 t1
+c11 ARG2 "now"
+
+%%% DRG: 87
+%%% ø Tom shook my hand .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b2 hand.n.01 c3 % hand 13-17
+c3 ARG1 x2
+b2 of c4 % my 10-12
+c4 ARG1 x2
+c4 ARG2 "speaker"
+b3 shake.v.09 c5 % shook 4-9
+c5 ARG1 e1
+b3 Stimulus c6
+c6 ARG1 e1
+c6 ARG2 x1
+b3 Experiencer c7
+c7 ARG1 e1
+c7 ARG2 x2
+b3 time.n.01 c8
+c8 ARG1 t1
+b3 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b3 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+
+%%% DRG: 88
+%%% She shook her head and laughed merrily .
+b3 continuation b4 % and 19-22
+b3 parallel b4
+b4 REF e2
+b4 REF t2
+b4 REF x3
+b4 laugh.v.01 c11 % laughed 23-30
+c11 ARG1 e2
+b4 Agent c12
+c12 ARG1 e2
+c12 ARG2 x1
+b4 time.n.01 c13
+c13 ARG1 t2
+b4 Time c14
+c14 ARG1 e2
+c14 ARG2 t2
+b4 temp_before c15
+c15 ARG1 t2
+c15 ARG2 "now"
+b4 Manner c16
+c16 ARG1 e2
+c16 ARG2 x3
+b4 happily.r.01 c17 % merrily 31-38
+c17 ARG1 x3
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b1 female.n.02 c1 % She 0-3
+c1 ARG1 x1
+b1 female.n.02 c2 % her 10-13
+c2 ARG1 x1
+b2 head.n.01 c3 % head 14-18
+c3 ARG1 x2
+b2 of c4
+c4 ARG1 x2
+c4 ARG2 x1
+b3 shake.v.09 c5 % shook 4-9
+c5 ARG1 e1
+b3 Stimulus c6
+c6 ARG1 e1
+c6 ARG2 x1
+b3 Experiencer c7
+c7 ARG1 e1
+c7 ARG2 x2
+b3 time.n.01 c8
+c8 ARG1 t1
+b3 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b3 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+
+%%% DRG: 89
+%%% I 'll call this evening at ø seven .
+b1 REF e1
+b2 REF t1
+b1 REF x1
+b1 REF t2 % 'll 1-4
+b1 call.v.03 c1 % call 5-9
+c1 ARG1 e1
+b1 Agent c2
+c2 ARG1 e1
+c2 ARG2 "speaker"
+b2 evening.n.01 c3 % evening 15-22
+c3 ARG1 t1
+b1 Time c4 % this 10-14
+c4 ARG1 e1
+c4 ARG2 t1
+b1 time.n.07 c5
+c5 ARG1 x1
+b1 Value c6 % seven 26-31
+c6 ARG1 x1
+c6 ARG2 "19:00"
+b1 Instrument c7 % at 23-25
+c7 ARG1 e1
+c7 ARG2 x1
+b1 time.n.01 c8
+c8 ARG1 t2
+b1 Time c9
+c9 ARG1 e1
+c9 ARG2 t2
+b1 temp_before c10
+c10 ARG1 "now"
+c10 ARG2 t2
+
+%%% DRG: 90
+%%% The name of ø George~W.~Bush 's wife is ø Laura .
+b1 REF x1 % The 0-3
+b2 REF x2
+b3 REF x3
+b1 REF x4
+b1 name.n.01 c1 % name 4-8
+c1 ARG1 x1
+b2 person.n.01 c2
+c2 ARG1 x2
+b2 Named c3 % George~W.~Bush 12-26
+c3 ARG1 x2
+c3 ARG2 "george~w.~bush"
+b3 wife.n.01 c4 % wife 29-33
+c4 ARG1 x3
+b3 of c5
+c5 ARG1 x3
+c5 ARG2 x2
+b1 Content c6 % of 9-11
+c6 ARG1 x1
+c6 ARG2 x3
+b1 EQU c7 % Laura 37-42
+c7 ARG x4
+c7 ARG "laura"
+b1 EQU c8 % is 34-36
+c8 ARG x1
+c8 ARG x4
+
+%%% DRG: 91
+%%% ø Liisa phones ø Markku occasionally .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b3 REF x3
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Liisa 0-5
+c2 ARG1 x1
+c2 ARG2 "liisa"
+b2 person.n.01 c3
+c3 ARG1 x2
+b2 Named c4 % Markku 13-19
+c4 ARG1 x2
+c4 ARG2 "markku"
+b3 call.v.03 c5 % phones 6-12
+c5 ARG1 e1
+b3 Agent c6
+c6 ARG1 e1
+c6 ARG2 x1
+b3 Theme c7
+c7 ARG1 e1
+c7 ARG2 x2
+b3 time.n.01 c8
+c8 ARG1 t1
+b3 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b3 EQU c10
+c10 ARG t1
+c10 ARG "now"
+b3 Manner c11
+c11 ARG1 e1
+c11 ARG2 x3
+b3 occasionally.r.01 c12 % occasionally 20-32
+c12 ARG1 x3
+
+%%% DRG: 92
+%%% My brother lives in a small village .
+b1 REF x1
+b1 REF x2
+b2 REF e1
+b2 REF t1
+b2 REF x3 % a 20-21
+b2 REF x4
+b1 brother.n.01 c1 % brother 3-10
+c1 ARG1 x2
+b1 Role c2
+c2 ARG1 x1
+c2 ARG2 x2
+b1 person.n.01 c3
+c3 ARG1 x1
+b1 of c4 % My 0-2
+c4 ARG1 x2
+c4 ARG2 "speaker"
+b2 populate.v.01 c5 % lives 11-16
+c5 ARG1 e1
+b2 Theme c6
+c6 ARG1 e1
+c6 ARG2 x1
+b2 time.n.01 c7
+c7 ARG1 t1
+b2 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b2 EQU c9
+c9 ARG t1
+c9 ARG "now"
+b2 Holder c10
+c10 ARG1 x4
+c10 ARG2 x3
+b2 minor.s.10 c11 % small 22-27
+c11 ARG1 x4
+b2 village.n.01 c12 % village 28-35
+c12 ARG1 x3
+b2 Instrument c13 % in 17-19
+c13 ARG1 e1
+c13 ARG2 x3
+
+%%% DRG: 93
+%%% The work calls for ø great patience .
+b1 REF x1 % The 0-3
+b2 REF x2
+b2 REF x3
+b2 REF e1
+b2 REF t1
+b1 work.n.01 c1 % work 4-8
+c1 ARG1 x1
+b2 Holder c2
+c2 ARG1 x3
+c2 ARG2 x2
+b2 great.s.03 c3 % great 19-24
+c3 ARG1 x3
+b2 patience.n.01 c4 % patience 25-33
+c4 ARG1 x2
+b2 necessitate.v.01 c5 % calls 9-14
+c5 ARG1 e1
+b2 Agent c6
+c6 ARG1 e1
+c6 ARG2 x1
+b2 Theme c7
+c7 ARG1 e1
+c7 ARG2 x2
+b2 time.n.01 c8
+c8 ARG1 t1
+b2 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b2 EQU c10
+c10 ARG t1
+c10 ARG "now"
+
+%%% DRG: 94
+%%% He attempted to swim across the river .
+b1 REF x1
+b2 REF e1
+b2 REF p1
+b2 REF t1
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 try.v.01 c2 % attempted 3-12
+c2 ARG1 e1
+b2 Agent c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 Topic c4
+c4 ARG1 e1
+c4 ARG2 p1
+b2 PROP c5
+c5 ARG1 p1
+c5 ARG2 b3
+b2 time.n.01 c10
+c10 ARG1 t1
+b2 Time c11
+c11 ARG1 e1
+c11 ARG2 t1
+b2 temp_before c12
+c12 ARG1 t1
+c12 ARG2 "now"
+b3 REF e2
+b4 REF x2 % the 28-31
+b3 swim.v.01 c6 % swim 16-20
+c6 ARG1 e2
+b3 Theme c7
+c7 ARG1 e2
+c7 ARG2 x1
+b4 river.n.01 c8 % river 32-37
+c8 ARG1 x2
+b3 Topic c9 % across 21-27
+c9 ARG1 e2
+c9 ARG2 x2
+
+%%% DRG: 95
+%%% The girl started to sob .
+b1 REF x1 % The 0-3
+b2 REF e1
+b2 REF p1
+b2 REF t1
+b1 girl.n.01 c1 % girl 4-8
+c1 ARG1 x1
+b2 begin.v.03 c2 % started 9-16
+c2 ARG1 e1
+b2 Agent c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 Topic c4
+c4 ARG1 e1
+c4 ARG2 p1
+b2 PROP c5
+c5 ARG1 p1
+c5 ARG2 b3
+b2 time.n.01 c8
+c8 ARG1 t1
+b2 Time c9
+c9 ARG1 e1
+c9 ARG2 t1
+b2 temp_before c10
+c10 ARG1 t1
+c10 ARG2 "now"
+b3 REF e2
+b3 sob.v.01 c6 % sob 20-23
+c6 ARG1 e2
+b3 Agent c7
+c7 ARG1 e2
+c7 ARG2 x1
+
+%%% DRG: 96
+%%% She dumped me .
+b1 REF x1
+b2 REF e1
+b2 REF t1
+b1 female.n.02 c1 % She 0-3
+c1 ARG1 x1
+b2 dump.v.02 c2 % dumped 4-10
+c2 ARG1 e1
+b2 Agent c3
+c3 ARG1 e1
+c3 ARG2 x1
+b2 Patient c4
+c4 ARG1 e1
+c4 ARG2 "speaker"
+b2 time.n.01 c5
+c5 ARG1 t1
+b2 Time c6
+c6 ARG1 e1
+c6 ARG2 t1
+b2 temp_before c7
+c7 ARG1 t1
+c7 ARG2 "now"
+
+%%% DRG: 97
+%%% My house is near the post~office .
+b1 REF x1
+b2 REF x2 % the 17-20
+b3 REF s1
+b3 REF t1 % is 9-11
+b1 house.n.01 c1 % house 3-8
+c1 ARG1 x1
+b1 of c2 % My 0-2
+c2 ARG1 x1
+c2 ARG2 "speaker"
+b2 post_office.n.01 c3 % post~office 21-32
+c3 ARG1 x2
+b3 near.a.01 c4 % near 12-16
+c4 ARG1 s1
+b3 Agent c5
+c5 ARG1 s1
+c5 ARG2 x1
+b3 Theme c6
+c6 ARG1 s1
+c6 ARG2 x2
+b3 time.n.01 c7
+c7 ARG1 t1
+b3 Time c8
+c8 ARG1 s1
+c8 ARG2 t1
+b3 EQU c9
+c9 ARG t1
+c9 ARG "now"
+
+%%% DRG: 98
+%%% I attempted to solve the problem .
+b1 REF e1
+b1 REF p1
+b1 REF t1
+b1 try.v.01 c1 % attempted 2-11
+c1 ARG1 e1
+b1 Agent c2
+c2 ARG1 e1
+c2 ARG2 "speaker"
+b1 Topic c3
+c3 ARG1 e1
+c3 ARG2 p1
+b1 PROP c4
+c4 ARG1 p1
+c4 ARG2 b3
+b1 time.n.01 c9
+c9 ARG1 t1
+b1 Time c10
+c10 ARG1 e1
+c10 ARG2 t1
+b1 temp_before c11
+c11 ARG1 t1
+c11 ARG2 "now"
+b2 REF x1 % the 21-24
+b3 REF e2
+b2 problem.n.02 c5 % problem 25-32
+c5 ARG1 x1
+b3 solve.v.01 c6 % solve 15-20
+c6 ARG1 e2
+b3 Agent c7
+c7 ARG1 e2
+c7 ARG2 "speaker"
+b3 Theme c8
+c8 ARG1 e2
+c8 ARG2 x1
+
+%%% DRG: 99
+%%% ø Tom fastened his seat~belt .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b1 person.n.01 c1
+c1 ARG1 x1
+b1 Named c2 % Tom 0-3
+c2 ARG1 x1
+c2 ARG2 "tom"
+b1 male.n.02 c3 % his 13-16
+c3 ARG1 x1
+b2 seat_belt.n.01 c4 % seat~belt 17-26
+c4 ARG1 x2
+b2 of c5
+c5 ARG1 x2
+c5 ARG2 x1
+b3 fasten.v.01 c6 % fastened 4-12
+c6 ARG1 e1
+b3 Agent c7
+c7 ARG1 e1
+c7 ARG2 x1
+b3 Patient c8
+c8 ARG1 e1
+c8 ARG2 x2
+b3 time.n.01 c9
+c9 ARG1 t1
+b3 Time c10
+c10 ARG1 e1
+c10 ARG2 t1
+b3 temp_before c11
+c11 ARG1 t1
+c11 ARG2 "now"
+
+%%% DRG: 100
+%%% He climbed ø El~Capitan .
+b1 REF x1
+b2 REF x2
+b3 REF e1
+b3 REF t1
+b1 male.n.02 c1 % He 0-2
+c1 ARG1 x1
+b2 location.n.01 c2
+c2 ARG1 x2
+b2 Named c3 % El~Capitan 11-21
+c3 ARG1 x2
+c3 ARG2 "el~capitan"
+b3 climb.v.01 c4 % climbed 3-10
+c4 ARG1 e1
+b3 Patient c5
+c5 ARG1 e1
+c5 ARG2 x1
+b3 Attribute c6
+c6 ARG1 e1
+c6 ARG2 x2
+b3 time.n.01 c7
+c7 ARG1 t1
+b3 Time c8
+c8 ARG1 e1
+c8 ARG2 t1
+b3 temp_before c9
+c9 ARG1 t1
+c9 ARG2 "now"
+

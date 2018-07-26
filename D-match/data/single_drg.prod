@@ -1,0 +1,26 @@
+%%% DRG: 1
+%%% The dictionary contains about half a million words .
+b1 REF x1 % The 0-3
+b2 REF x2 % a 35-36
+b2 REF x3
+b1 dictionary.n.01 c1 % dictionary 4-14
+c1 ARG1 x1
+b2 Quantity c2 % million 37-44
+c2 ARG1 x2
+c2 ARG2 "1000000"
+b2 word.n.01 c3 % words 45-50
+c3 ARG1 x2
+b2 about.n.0 c4
+c4 ARG1 x2
+b2 time.n.01 c5
+c5 ARG1 x3
+b2 Theme c6
+c6 ARG1 x2
+c6 ARG2 x3
+b2 EQU c7 % contains 15-23
+c7 ARG x3
+c7 ARG "now"
+b2 EQU c8
+c8 ARG x2
+c8 ARG x1
+
