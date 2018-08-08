@@ -201,6 +201,7 @@ class AttnDecoderRNN(nn.Module):
         else:
             self.lstm.dropout = 0.0
             tokens = []
+	    positions = []
             rel = 0
             hidden_reps = []
 
@@ -239,11 +240,13 @@ class AttnDecoderRNN(nn.Module):
                     idx = sentence_variable[2][ttype].view(-1).data.tolist()[0]
                     idx += self.tags_info.tag_size
                     tokens.append(idx)
+		    positions.append(ttype)
                     input = Variable(torch.LongTensor([idx]), volatile=True)
                     if use_cuda:
                         input = input.cuda()
                 else:
                     tokens.append(idx)
+		    positions.append(-1)
 
                 if idx == self.tags_info.tag_to_ix[self.tags_info.EOS]:
                     break
@@ -255,7 +258,7 @@ class AttnDecoderRNN(nn.Module):
                 rel += 1
                 self.total_rel += 1
                 embedded = self.tag_embeds(input).view(1, 1, -1)
-            return Variable(torch.LongTensor(tokens), volatile=True), torch.cat(hidden_reps,0), hidden
+            return Variable(torch.LongTensor(tokens), volatile=True), torch.cat(hidden_reps,0), hidden, positions
 
     def forward_3(self, inputs, hidden, encoder_output, train, mask_variable):
         if train:
@@ -307,7 +310,6 @@ class AttnDecoderRNN(nn.Module):
                 assert idx < self.tags_info.tag_size
                 if idx == self.tags_info.tag_to_ix[self.tags_info.EOS]:
                     break
-                    
                 tokens.append(idx)
                 self.var_mask_pool.update(idx)
                 
@@ -343,7 +345,7 @@ def train(sentence_variable, input_variables, gold_variables, mask_variables, en
             decoder_input2.append((hidden_rep1[i], input_variables[1][p]))
             p += 1
     assert p == len(input_variables[1])
-    decoder_output2, hidden_rep2 = decoder(sentence_variable, decoder_input2, decoder_hidden2, encoder_output, least=None, train=True, mask_variable=mask_variables[1], opt=2)
+    decoder_output2, hidden_rep2= decoder(sentence_variable, decoder_input2, decoder_hidden2, encoder_output, least=None, train=True, mask_variable=mask_variables[1], opt=2)
     loss2 = criterion(decoder_output2, gold_variables[1])
     target_length2 += gold_variables[1].size(0)
 
@@ -395,6 +397,7 @@ def decode(sentence_variable, encoder, decoder):
     decoder.rel_mask_pool.reset(sentence_variable[0].size(0))
     decoder.total_rel = 0
     relations = []
+    positions = []
     hidden_rep2_list = []
     for i in range(len(structs)):
         if structs[i] == 5 or structs[i] == 6: # prev output, and hidden_rep1[i+1] is the input representation of prev output.
@@ -402,8 +405,9 @@ def decode(sentence_variable, encoder, decoder):
             if structs[i] == 5 or (structs[i] == 6 and structs[i+1] == 4):
                 least = True
             decoder.rel_mask_pool.set_sdrs(structs[i] == 5)
-            decoder_output2, hidden_rep2, decoder_hidden2 = decoder(sentence_variable, hidden_rep1[i+1], decoder_hidden2, encoder_output, least=least, train=False, mask_variable=None, opt=2)
+            decoder_output2, hidden_rep2, decoder_hidden2, position = decoder(sentence_variable, hidden_rep1[i+1], decoder_hidden2, encoder_output, least=least, train=False, mask_variable=None, opt=2)
             relations.append(decoder_output2.view(-1).data.tolist())
+	    positions.append(position)
             hidden_rep2_list.append(hidden_rep2)
     ####### variable
     decoder_hidden3 = (torch.cat((encoder_hidden[0][-2], encoder_hidden[0][-1]), 1).unsqueeze(0),torch.cat((encoder_hidden[1][-2], encoder_hidden[1][-1]), 1).unsqueeze(0))
@@ -433,7 +437,7 @@ def decode(sentence_variable, encoder, decoder):
         if structs[i] == 1: # EOS
             continue
         decoder.var_mask_pool.update(structs[i])
-        struct_rel_tokens.append(structs[i])
+        struct_rel_tokens.append((structs[i],-1))
         if structs[i] == 5 or structs[i] == 6:
             if structs[i] == 5:
                 assert len(user_k[user_k_p]) >= 2
@@ -444,11 +448,11 @@ def decode(sentence_variable, encoder, decoder):
                 if relations[structs_p][j] == 1: # EOS
                     continue
                 decoder.var_mask_pool.update(relations[structs_p][j])
-                struct_rel_tokens.append(relations[structs_p][j])
+                struct_rel_tokens.append((relations[structs_p][j], positions[structs_p][j]))
                 decoder_output3, decoder_hidden3= decoder(None, hidden_rep2_list[structs_p][j+1], decoder_hidden3, encoder_output, least=None, train=False, mask_variable=None, opt=3)
                 var_tokens.append(decoder_output3.view(-1).data.tolist())
                 decoder.var_mask_pool.update(4)
-                struct_rel_tokens.append(4)
+                struct_rel_tokens.append((4, -1))
             structs_p += 1
     assert structs_p == len(relations)
 
@@ -1048,9 +1052,17 @@ class Demo:
 		lemmas.append(lemmatizer.lemmatize(word.lower(),self.get_wordnet_pos(pos_tag)))
 		lemmas[-1] = lemmas[-1].encode("utf8")
     	return lemmas
+    def preprocess(self,tokens):
+	for i in range(len(tokens)):
+	    if tokens[i] == "(":
+		tokens[i] = "-LRB-"
+	    elif tokens[i] == ")":
+		tokens[i] = "-RRB-"
+	return tokens		
     def test(self, sent):
 	tokenizer = nltk.tokenize.TreebankWordTokenizer()
 	tokens = tokenizer.tokenize(sent)
+	tokens = self.preprocess(tokens)
 	lemmas = self.get_lemmas(tokens)
 	pretrains = [ tok.lower() for tok in tokens]
 	print tokens
@@ -1074,11 +1086,13 @@ class Demo:
         p = 0
         output = []
         for i in range(len(structs)):
-            if structs[i] < self.decoder.tags_info.tag_size:
-                output.append(self.decoder.tags_info.ix_to_tag[structs[i]])
+            #if structs[i]< self.decoder.tags_info.tag_size:
+	    if structs[i][1] == -1:
+                output.append(self.decoder.tags_info.ix_to_tag[structs[i][0]])
             else:
-                output.append(self.decoder.tags_info.ix_to_lemma[structs[i] - self.decoder.tags_info.tag_size])
-            if (structs[i] >= 13 and structs[i] < self.decoder.tags_info.k_rel_start) or structs[i] >= self.decoder.tags_info.tag_size:
+                #output.append("_c_"+self.decoder.tags_info.ix_to_lemma[structs[i] - self.decoder.tags_info.tag_size])
+		output.append(lemmas[structs[i][1]]+"(")
+	    if (structs[i][0] >= 13 and structs[i][0] < self.decoder.tags_info.k_rel_start) or structs[i][0] >= self.decoder.tags_info.tag_size:
                 for idx in tokens[p]:
                     output.append(self.decoder.tags_info.ix_to_tag[idx])
                 p += 1
@@ -1089,4 +1103,6 @@ class Demo:
 if __name__ == "__main__":
 	demo = Demo()
 	demo.load_model()
-	demo.test("They marched from the Houses of Parliament to a rally in Hyde Park.")
+	#demo.test("They marched from the Houses of Parliament to a rally in Hyde Park.")
+	#demo.test("He likes apples.")
+	demo.test("Discourse Representation Theory (Kamp and Reyle 1993) is a general framework for representing the meaning of sentences and discourse which can handle multiple linguistic phenomena including anaphora, presuppositions, and temporal expressions.") 
