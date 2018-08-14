@@ -382,7 +382,7 @@ def train(sentence_variable, input_variables, gold_variables, mask_variables, en
 
 def decode(sentence_variable, encoder, decoder):
     encoder_hidden = encoder.initHidden()
-    encoder_output, encoder_hidden = encoder(sentence_variable, encoder_hidden)
+    encoder_output, encoder_hidden = encoder(sentence_variable, encoder_hidden, train=False)
     
     ####### struct
     decoder_hidden1 = (torch.cat((encoder_hidden[0][-2], encoder_hidden[0][-1]), 1).unsqueeze(0),torch.cat((encoder_hidden[1][-2], encoder_hidden[1][-1]), 1).unsqueeze(0))
