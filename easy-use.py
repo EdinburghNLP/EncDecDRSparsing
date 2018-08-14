@@ -50,7 +50,6 @@ class EncoderRNN(nn.Module):
             word_embedded = self.dropout(word_embedded)
             lemma_embedded = self.dropout(lemma_embedded)
             self.lstm.dropout = self.dropout_p
-
         embeds = self.tanh(self.embeds2input(torch.cat((word_embedded, pretrain_embedded, lemma_embedded), 1))).view(len(sentence[0]),1,-1)
         output, hidden = self.lstm(embeds, hidden)
         return output, hidden
@@ -148,7 +147,8 @@ class AttnDecoderRNN(nn.Module):
                 
                 embedded = self.tag_embeds(input).view(1, 1, -1)
                 output, hidden = self.lstm(embedded, hidden)
-                hidden_rep.append(output)
+                
+		hidden_rep.append(output)
 
                 attn_weights = F.softmax(torch.bmm(output, encoder_output.transpose(0,1).transpose(1,2)).view(output.size(0), -1), 1)
                 attn_hiddens = torch.bmm(attn_weights.unsqueeze(0), encoder_output.transpose(0, 1))
@@ -382,7 +382,7 @@ def train(sentence_variable, input_variables, gold_variables, mask_variables, en
 
 def decode(sentence_variable, encoder, decoder):
     encoder_hidden = encoder.initHidden()
-    encoder_output, encoder_hidden = encoder(sentence_variable, encoder_hidden)
+    encoder_output, encoder_hidden = encoder(sentence_variable, encoder_hidden, train=False)
     
     ####### struct
     decoder_hidden1 = (torch.cat((encoder_hidden[0][-2], encoder_hidden[0][-1]), 1).unsqueeze(0),torch.cat((encoder_hidden[1][-2], encoder_hidden[1][-1]), 1).unsqueeze(0))
@@ -1066,8 +1066,8 @@ class Demo:
 	lemmas = self.get_lemmas(tokens)
 	pretrains = [ tok.lower() for tok in tokens]
 	print tokens
-	print pretrains
 	print lemmas
+	print pretrains
 
 	instance = []
 	instance.append(Variable(torch.LongTensor([get_from_ix(tok, self.word_to_ix, 0) for tok in tokens]), volatile=True))
@@ -1103,6 +1103,8 @@ class Demo:
 if __name__ == "__main__":
 	demo = Demo()
 	demo.load_model()
-	#demo.test("They marched from the Houses of Parliament to a rally in Hyde Park.")
+	demo.test("They marched from the Houses of Parliament to a rally in Hyde Park.")
+	#demo.test("An official with the German firm Bilfinger Berger, Thomas Horbach, said the gunmen stopped the supply boat Wednesday as it sailed from Delta State to Bayelsa State to inspect an offshore oil field owned by Royal-Dutch Shell.")
+	demo.test("He likes apples.")
 	#demo.test("He likes apples.")
-	demo.test("Discourse Representation Theory (Kamp and Reyle 1993) is a general framework for representing the meaning of sentences and discourse which can handle multiple linguistic phenomena including anaphora, presuppositions, and temporal expressions.") 
+	#demo.test("Discourse Representation Theory (Kamp and Reyle 1993) is a general framework for representing the meaning of sentences and discourse which can handle multiple linguistic phenomena including anaphora, presuppositions, and temporal expressions.") 
