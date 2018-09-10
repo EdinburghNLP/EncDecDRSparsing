@@ -851,6 +851,7 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
             print('epoch %.6f : %.10f s1: %.10f s2: %.10f s3: %.10f' % (iter*1.0 / len(trn_instances), print_loss_avg, print_loss_avg1, print_loss_avg2, print_loss_avg3 ))
 
         if iter % evaluate_every == 0:
+            torch.save({"iter": iter, "idx":idx,  "encoder":encoder.state_dict(), "decoder":decoder.state_dict(), "encoder_optimizer": encoder_optimizer.state_dict(), "decoder_optimizer": decoder_optimizer.state_dict()}, model_dir+str(int(iter/evaluate_every))+".model")
             """
             dev_idx = 0
             dev_loss = 0.0
