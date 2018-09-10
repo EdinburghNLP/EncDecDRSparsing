@@ -520,7 +520,7 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
     mask3_variables = []
 
     for instance in trn_instances:
-        #print len(sentence_variables)
+        print "===",len(sentence_variables)
         sentence_variables.append([])
         if use_cuda:
             sentence_variables[-1].append(Variable(instance[0]).cuda())
@@ -594,6 +594,7 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
         mask1 = []
         mask1.append(decoder.outer_mask_pool.get_step_mask())
         for idx in instance[3]:
+            #print idx
             assert mask1[-1][idx] == decoder.outer_mask_pool.need
             if idx >= decoder.tags_info.p_rel_start and idx < decoder.tags_info.k_tag_start:
                 p_max += 1
@@ -655,6 +656,7 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
 #==================================
     dev_sentence_variables = []
 
+    """
     dev_input1_variables = []
     dev_input2_variables = []
     dev_input3_variables = []
@@ -667,6 +669,7 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
     dev_mask2_variables = []
     dev_mask3_variables = []
 
+    """
     for instance in dev_instances:
         #print len(sentence_variables)
         dev_sentence_variables.append([])
@@ -678,7 +681,7 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
             dev_sentence_variables[-1].append(Variable(instance[0], volatile=True))
             dev_sentence_variables[-1].append(Variable(instance[1], volatile=True))
             dev_sentence_variables[-1].append(Variable(instance[2], volatile=True))
-
+        """
         if use_cuda:
             dev_input1_variables.append(Variable(torch.LongTensor([0] + instance[3]), volatile=True).cuda())
             dev_gold1_variables.append(Variable(torch.LongTensor(instance[3] + [1]), volatile=True).cuda())
@@ -797,7 +800,7 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
             dev_mask1_variables.append(Variable(torch.FloatTensor(mask1), volatile=True))
             dev_mask2_variables.append(Variable(torch.FloatTensor(mask2), volatile=True))
             dev_mask3_variables.append(Variable(torch.FloatTensor(mask3), volatile=True))
-
+        """
 #====================================== test
     tst_sentence_variables = []
 
@@ -848,6 +851,7 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
             print('epoch %.6f : %.10f s1: %.10f s2: %.10f s3: %.10f' % (iter*1.0 / len(trn_instances), print_loss_avg, print_loss_avg1, print_loss_avg2, print_loss_avg3 ))
 
         if iter % evaluate_every == 0:
+            """
             dev_idx = 0
             dev_loss = 0.0
             dev_loss1 = 0.0
@@ -864,6 +868,7 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
                 dev_loss += (a+b+c)
                 dev_idx += 1
             print('dev loss %.10f, s1: %.10f, s2: %.10f, s3: %.10f ' % (dev_loss/len(dev_instances), dev_loss1/len(dev_instances), dev_loss2/len(dev_instances), dev_loss3/len(dev_instances)))
+            """
             evaluate(dev_sentence_variables, encoder, decoder, dev_out_dir+str(int(iter/evaluate_every))+".drs")
             evaluate(tst_sentence_variables, encoder, decoder, tst_out_dir+str(int(iter/evaluate_every))+".drs")
 
@@ -948,15 +953,15 @@ from utils import readpretrain
 from tag import Tag
 #from mask import Mask
 
-trn_file = "data/train.input"
-dev_file = "data/dev.input"
-tst_file = "data/test.input"
+trn_file = "data/trn.oracle"
+dev_file = "data/dev.oracle"
+tst_file = "data/tst.oracle"
 pretrain_file = "data/sskip.100.vectors"
-tag_info_file = "data/tag.info"
-#trn_file = "train.input.part"
-#dev_file = "dev.input.part"
-#tst_file = "test.input.part"
-#pretrain_file = "sskip.100.vectors.part"
+tag_info_file = "data/UniversalCond"
+#trn_file = "data/trn.oracle.part"
+#dev_file = "data/trn.oracle.part"
+#tst_file = "data/trn.oracle.part"
+#pretrain_file = "data/sskip.100.vectors.part"
 UNK = "<UNK>"
 
 trn_data = readfile(trn_file)
@@ -1026,15 +1031,15 @@ attn_decoder = AttnDecoderRNN(outer_mask_pool, rel_mask_pool, var_mask_pool, tag
 
 ###########################################################
 # prepare training instance
-trn_instances = data2instance(trn_data, [(word_to_ix,0), (pretrain_to_ix,0), (lemma_to_ix,0), tags_info])
+trn_instances = data2instance(trn_data, [(word_to_ix,0), (pretrain_to_ix,0), (lemma_to_ix,0), tags_info], True)
 print "trn size: " + str(len(trn_instances))
 ###########################################################
 # prepare development instance
-dev_instances = data2instance(dev_data, [(word_to_ix,0), (pretrain_to_ix,0), (lemma_to_ix,0), tags_info])
+dev_instances = data2instance(dev_data, [(word_to_ix,0), (pretrain_to_ix,0), (lemma_to_ix,0), tags_info], False)
 print "dev size: " + str(len(dev_instances))
 ###########################################################
 # prepare test instance
-tst_instances = data2instance(tst_data, [(word_to_ix,0), (pretrain_to_ix,0), (lemma_to_ix,0), tags_info])
+tst_instances = data2instance(tst_data, [(word_to_ix,0), (pretrain_to_ix,0), (lemma_to_ix,0), tags_info], False)
 print "tst size: " + str(len(tst_instances))
 
 print "GPU", use_cuda

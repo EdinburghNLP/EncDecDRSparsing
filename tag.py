@@ -46,7 +46,7 @@ class Tag:
 			line = line.strip()
 			if line[0] == "#":
 				continue
-			self.relation_global.append(line.strip().upper())
+			self.relation_global.append(line.strip().upper()+"(")
 		
 		self.tag_to_ix = {self.SOS:0, self.EOS:1, self.CARD:2, self.TIME:3}
 		self.ix_to_tag = [self.SOS, self.EOS, self.CARD, self.TIME]

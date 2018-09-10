@@ -16,6 +16,7 @@ class OuterMask:
 		self.six_offset = 5
 		
 		self.reset()
+		self.max_relation = 40
 	def reset(self, ):
 		self.relation_count = 0
 		self.stack = [self.SOS]
@@ -66,6 +67,7 @@ class OuterMask:
 		if self.stack_ex[-1][self.drs_offset] == 0:
 			re = self._get_zeros(self.tags_info.tag_size)
 			re[self.tags_info.tag_to_ix[self.tags_info.rel_drs]] = self.need
+			re[self.tags_info.tag_to_ix[self.tags_info.rel_sdrs]] = self.need
 			return re
 		else:
 			re = self._get_zeros(self.tags_info.tag_size)
@@ -83,7 +85,7 @@ class OuterMask:
 			#only reduce
 			re = self._get_zeros(self.tags_info.tag_size)
 			re[self.tags_info.tag_to_ix[self.tags_info.reduce]] = self.need
-			if self.relation_count <= 40:
+			if self.relation_count <= self.max_relation:
 				cnt = 0
 				for i in range(len(self.stack)-1):
 					if self.stack[i] == 5 and self.stack_ex[i][self.k_relation_offset] == 0:
@@ -96,7 +98,7 @@ class OuterMask:
 	def _get_drs_mask(self):
 		re = self._get_zeros(self.tags_info.tag_size)
 		re[self.tags_info.tag_to_ix[self.tags_info.reduce]] = self.need
-		if self.relation_count <= 40:
+		if self.relation_count <= self.max_relation:
 			if self.p <= self.tags_info.MAX_PV:
 				idx = self.tags_info.p_rel_start + self.p - 1
 				re[idx] = self.need
@@ -110,7 +112,7 @@ class OuterMask:
 	def _get_1_mask(self):
 		if self.stack_ex[-1][self.drs_offset] == 0:
 			re = self._get_zeros(self.tags_info.tag_size)
-			if self.relation_count <= 40:
+			if self.relation_count <= self.max_relation:
 				cnt = 0
 				for i in range(len(self.stack)):
 					if self.stack[i] == 5 and self.stack_ex[i][self.k_relation_offset] == 0:
@@ -126,7 +128,7 @@ class OuterMask:
 	def _get_2_mask(self):
 		if self.stack_ex[-1][self.drs_offset] <= 1:
 			re = self._get_zeros(self.tags_info.tag_size)
-			if self.relation_count <= 40:
+			if self.relation_count <= self.max_relation:
 				cnt = 0
 				for i in range(len(self.stack)):
 					if self.stack[i] == 5 and self.stack_ex[i][self.k_relation_offset] == 0:
