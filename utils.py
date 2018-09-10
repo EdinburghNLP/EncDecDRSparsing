@@ -5,6 +5,10 @@ def readfile(filename):
 	with open(filename, "r") as r:
 		while True:
 			l1 = r.readline().strip()
+			if l1 == "":
+				break
+			if l1[0] == "#":
+				continue
 			l2 = r.readline().strip()
 			l3 = r.readline().strip()
 			if l1 == "":
@@ -29,7 +33,7 @@ def get_from_ix(w, to_ix, unk):
 	assert unk != -1, "no unk supported"
 	return unk
 
-def data2instance(trn_data, ixes):
+def data2instance(trn_data, ixes, train):
 	instances = []
 	for one in trn_data:
 		instances.append([])
@@ -38,6 +42,8 @@ def data2instance(trn_data, ixes):
 		instances[-1].append(torch.LongTensor([get_from_ix(w, ixes[1][0], ixes[1][1]) for w in one[1]]))
 		instances[-1].append(torch.LongTensor([get_from_ix(w, ixes[2][0], ixes[2][1]) for w in one[2]]))
 
+		if not train:
+			continue
 		instances[-1].append([])
 		relation = 0
 		for item in one[3]:
