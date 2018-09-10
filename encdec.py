@@ -520,7 +520,7 @@ def trainIters(trn_instances, dev_instances, tst_instances, encoder, decoder, pr
     mask3_variables = []
 
     for instance in trn_instances:
-        print "===",len(sentence_variables)
+        #print "===",len(sentence_variables)
         sentence_variables.append([])
         if use_cuda:
             sentence_variables[-1].append(Variable(instance[0]).cuda())
