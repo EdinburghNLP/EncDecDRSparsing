@@ -121,10 +121,17 @@ def process(tokens):
 			else:
 				i += 3
 	assert len(tuples)!=0
-	for item in tuples:
-		print " ".join(item)
-	print
-for line in open(sys.argv[1]):
-	line = line.strip()
-	if line[:5] == "SDRS(" or line[:4] == "DRS(":
-		process(line.split())
+	return tuples
+
+if __name__ == "__main__":
+    for line in open(sys.argv[1]):
+    	line = line.strip()
+    	if line[:4] == "DRS(":
+            process(line.split())
+# 	for item in tuples:
+# 		print " ".join(item)
+# 	print
+# for line in open(sys.argv[1]):
+# 	line = line.strip()
+# 	if line[:5] == "SDRS(" or line[:4] == "DRS(":
+# 		process(line.split())

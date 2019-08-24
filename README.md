@@ -1,6 +1,10 @@
 # EncDecDRSparsing
 The codes to the paper "Discourse Representation Structure Parsing" ACL 2018.
 
+# Requirements
+
+    python 2.7
+    pytorch 0.3.0.post4
 
 # Experiments
 ## data
@@ -26,9 +30,9 @@ Tree-like structure should be converted into Discourse Representation Graph (DRG
 Note that D-match is implemented in https://github.com/RikVN 
 
 ## Demo
-The trained model can be got in https://drive.google.com/open?id=1vkhkYt3_Hmtz0x2GuynPT3PZLLu68day, and then put it into the folder data.
+The trained model can be got in https://drive.google.com/open?id=1vkhkYt3_Hmtz0x2GuynPT3PZLLu68day (GPU), https://drive.google.com/open?id=1gSkq2KDEtD5dMDYpRtA-B0Iatbc2gPrv (CPU), and then put it into the folder data.
 
-    python easy-use.py
+    python sent2drs.py
     
     
   
